@@ -1,0 +1,63 @@
+{
+  "paragraphs": [
+    {
+      "text": "%spark.pyspark\nfrom pathlib import Path\n\npath \u003d Path( \"/home/aes-saouiqui/spark-project/backend/data/off.csv.gz\")\nprint(\"hello word\")",
+      "user": "anonymous",
+      "dateUpdated": "2025-06-01 01:36:38.191",
+      "progress": 0,
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "results": {},
+        "enabled": false,
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        }
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1748736894714_668024927",
+      "id": "paragraph_1748736894714_668024927",
+      "dateCreated": "2025-06-01 01:14:54.714",
+      "dateStarted": "2025-06-01 01:31:40.306",
+      "status": "FINISHED"
+    },
+    {
+      "text": "%pyspark\n",
+      "user": "anonymous",
+      "dateUpdated": "2025-06-01 01:31:40.305",
+      "progress": 0,
+      "config": {},
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1748737900305_2119739179",
+      "id": "paragraph_1748737900305_2119739179",
+      "dateCreated": "2025-06-01 01:31:40.305",
+      "status": "READY"
+    }
+  ],
+  "name": "Cleaning_python",
+  "id": "2KY69J5SA",
+  "defaultInterpreterGroup": "spark",
+  "version": "0.12.0",
+  "noteParams": {},
+  "noteForms": {},
+  "angularObjects": {},
+  "config": {
+    "isZeppelinNotebookCronEnable": false
+  },
+  "info": {}
+}

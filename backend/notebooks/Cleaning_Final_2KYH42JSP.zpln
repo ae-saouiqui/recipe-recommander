@@ -1,0 +1,1365 @@
+{
+  "paragraphs": [
+    {
+      "text": "%spark \n// Check file existence \nimport java.io.File\n\nval source_path \u003d \"/home/aes-saouiqui/spark-project/backend/data/off.csv.gz\"\n// Check if the file exist\nval file \u003d new File(source_path)\nif (file.exists()) {\n    \"File exists!\"\n} else {\n    \"File does not exist.\"\n}",
+      "user": "anonymous",
+      "dateUpdated": "2025-06-01 12:00:40.065",
+      "progress": 0,
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "results": {},
+        "enabled": true,
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        }
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "import java.io.File\n\u001b[1m\u001b[34msource_path\u001b[0m: \u001b[1m\u001b[32mString\u001b[0m \u003d /home/aes-saouiqui/spark-project/backend/data/off.csv.gz\n\u001b[1m\u001b[34mfile\u001b[0m: \u001b[1m\u001b[32mjava.io.File\u001b[0m \u003d /home/aes-saouiqui/spark-project/backend/data/off.csv.gz\n\u001b[1m\u001b[34mres1\u001b[0m: \u001b[1m\u001b[32mString\u001b[0m \u003d File exists!\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1748712317614_1079780810",
+      "id": "paragraph_1748712317614_1079780810",
+      "dateCreated": "2025-05-31 18:25:17.615",
+      "dateStarted": "2025-06-01 12:00:40.097",
+      "dateFinished": "2025-06-01 12:01:11.165",
+      "status": "FINISHED"
+    },
+    {
+      "text": "%spark\n// Try reading the dataset \nvar source_df \u003d spark.read.format(\"csv\")\n.option(\"header\",\"true\")\n.option(\"mode\",\"FAILFAST\")\n.option(\"inferSchema\",\"true\")\n.option(\"sep\",\"\\t\")\n.option(\"compression\",\"gzip\")\n.load(source_path)",
+      "user": "anonymous",
+      "dateUpdated": "2025-06-01 12:00:43.517",
+      "progress": 0,
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        }
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "\u001b[1m\u001b[34msource_df\u001b[0m: \u001b[1m\u001b[32morg.apache.spark.sql.DataFrame\u001b[0m \u003d [code: double, url: string ... 207 more fields]\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            {
+              "jobUrl": "http://192.168.1.128:4040/jobs/job?id\u003d0"
+            },
+            {
+              "jobUrl": "http://192.168.1.128:4040/jobs/job?id\u003d1"
+            }
+          ],
+          "interpreterSettingId": "spark"
+        }
+      },
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1748712441186_230573299",
+      "id": "paragraph_1748712441186_230573299",
+      "dateCreated": "2025-05-31 18:27:21.186",
+      "dateStarted": "2025-06-01 12:01:11.169",
+      "dateFinished": "2025-06-01 12:02:39.861",
+      "status": "FINISHED"
+    },
+    {
+      "text": "%spark\nimport org.apache.spark.sql.functions.col \nsource_df \u003d source_df.filter(col(\"product_name\").isNotNull.and(col(\"product_name\") \u003d!\u003d \"\"))\n",
+      "user": "anonymous",
+      "dateUpdated": "2025-06-01 13:50:31.900",
+      "progress": 0,
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "results": {},
+        "enabled": true,
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        }
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "import org.apache.spark.sql.functions.col\nsource_df: org.apache.spark.sql.DataFrame \u003d [code: double, url: string ... 207 more fields]\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1748713053352_280604694",
+      "id": "paragraph_1748713053352_280604694",
+      "dateCreated": "2025-05-31 18:37:33.352",
+      "dateStarted": "2025-06-01 13:50:31.912",
+      "dateFinished": "2025-06-01 13:50:31.997",
+      "status": "FINISHED"
+    },
+    {
+      "text": "%spark\n",
+      "user": "anonymous",
+      "dateUpdated": "2025-06-01 09:49:37.880",
+      "progress": 0,
+      "config": {},
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1748767777879_1826134814",
+      "id": "paragraph_1748767777879_1826134814",
+      "dateCreated": "2025-06-01 09:49:37.880",
+      "status": "READY"
+    },
+    {
+      "text": "%spark\n// Split the data \nimport org.apache.spark.sql.functions.{col,split,lower,array_contains}\n// From the dataset countries are separated with \",\",so we can split into an array using it as separator\n// Ensure the countries match the same cases.\nval split_countries_col \u003d split(lower(col(\"countries_en\")),\",\")\n// Check if \"italy\" or \"japan\" exists in array of countries\nval japan_italy_filter \u003d array_contains(split_countries_col,\"italy\").or(array_contains(split_countries_col,\"japan\"))\n\nval source_df_1 \u003d source_df.filter(japan_italy_filter)",
+      "user": "anonymous",
+      "dateUpdated": "2025-06-01 13:50:34.227",
+      "progress": 0,
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "results": {},
+        "enabled": true,
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        }
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "import org.apache.spark.sql.functions.{col, split, lower, array_contains}\n\u001b[1m\u001b[34msplit_countries_col\u001b[0m: \u001b[1m\u001b[32morg.apache.spark.sql.Column\u001b[0m \u003d split(lower(countries_en), ,, -1)\n\u001b[1m\u001b[34mjapan_italy_filter\u001b[0m: \u001b[1m\u001b[32morg.apache.spark.sql.Column\u001b[0m \u003d (array_contains(split(lower(countries_en), ,, -1), italy) OR array_contains(split(lower(countries_en), ,, -1), japan))\n\u001b[1m\u001b[34msource_df_1\u001b[0m: \u001b[1m\u001b[32morg.apache.spark.sql.Dataset[org.apache.spark.sql.Row]\u001b[0m \u003d [code: double, url: string ... 207 more fields]\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1748716100167_1641241039",
+      "id": "paragraph_1748716100167_1641241039",
+      "dateCreated": "2025-05-31 19:28:20.167",
+      "dateStarted": "2025-06-01 13:50:34.232",
+      "dateFinished": "2025-06-01 13:50:34.304",
+      "status": "FINISHED"
+    },
+    {
+      "text": "%spark\nval source_df_2 \u003d source_df_1.withColumn(\"ingredients_tags\",\ntransform(\nsplit(col(\"ingredients_tags\"),\",\"),\n(x \u003d\u003e regexp_replace(x,\"^.*?:\",\"\"))\n))",
+      "user": "anonymous",
+      "dateUpdated": "2025-06-01 13:50:36.653",
+      "progress": 0,
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "results": {},
+        "enabled": true,
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        }
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "\u001b[1m\u001b[34msource_df_2\u001b[0m: \u001b[1m\u001b[32morg.apache.spark.sql.DataFrame\u001b[0m \u003d [code: double, url: string ... 207 more fields]\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1748734075011_512680067",
+      "id": "paragraph_1748734075011_512680067",
+      "dateCreated": "2025-06-01 00:27:55.011",
+      "dateStarted": "2025-06-01 13:50:36.661",
+      "dateFinished": "2025-06-01 13:50:36.744",
+      "status": "FINISHED"
+    },
+    {
+      "text": "%spark\nsource_df_1.select(\"environmental_score_grade\").distinct().show",
+      "user": "anonymous",
+      "dateUpdated": "2025-06-01 08:23:52.413",
+      "progress": 0,
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "results": {},
+        "enabled": true,
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        }
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "+-------------------------+\n|environmental_score_grade|\n+-------------------------+\n|                        c|\n|           not-applicable|\n|                  unknown|\n|                        f|\n|                        b|\n|                        a|\n|                        e|\n|                        d|\n|                   a-plus|\n|                     NULL|\n+-------------------------+\n\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            {
+              "jobUrl": "http://192.168.1.128:4040/jobs/job?id\u003d2"
+            },
+            {
+              "jobUrl": "http://192.168.1.128:4040/jobs/job?id\u003d3"
+            }
+          ],
+          "interpreterSettingId": "spark"
+        }
+      },
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1748738419306_855465418",
+      "id": "paragraph_1748738419306_855465418",
+      "dateCreated": "2025-06-01 01:40:19.306",
+      "dateStarted": "2025-06-01 08:23:52.420",
+      "dateFinished": "2025-06-01 08:24:46.496",
+      "status": "FINISHED"
+    },
+    {
+      "text": "%spark\nval source_df_3\u003dsource_df_2.withColumn(\n    \"environmental_score_grade\",\n    when(col(\"environmental_score_grade\") \u003d\u003d\u003d \"a-plus\", \"a\")\n    .when(col(\"environmental_score_grade\") \u003d\u003d\u003d \"f\", \"e\")\n    .otherwise(col(\"environmental_score_grade\"))\n)",
+      "user": "anonymous",
+      "dateUpdated": "2025-06-01 13:50:40.918",
+      "progress": 0,
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "results": {},
+        "enabled": true,
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        }
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "\u001b[1m\u001b[34msource_df_3\u001b[0m: \u001b[1m\u001b[32morg.apache.spark.sql.DataFrame\u001b[0m \u003d [code: double, url: string ... 207 more fields]\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1748738372192_123593962",
+      "id": "paragraph_1748738372192_123593962",
+      "dateCreated": "2025-06-01 01:39:32.192",
+      "dateStarted": "2025-06-01 13:50:40.926",
+      "dateFinished": "2025-06-01 13:50:41.014",
+      "status": "FINISHED"
+    },
+    {
+      "text": "%spark\nval source_df_4\u003d source_df_3.withColumn(\n    \"environmental_score_score\",\n    when(col(\"environmental_score_score\") \u003c 0, 0).otherwise(col(\"environmental_score_score\"))\n) ",
+      "user": "anonymous",
+      "dateUpdated": "2025-06-01 13:50:43.158",
+      "progress": 0,
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "results": {},
+        "enabled": true,
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        }
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "\u001b[1m\u001b[34msource_df_4\u001b[0m: \u001b[1m\u001b[32morg.apache.spark.sql.DataFrame\u001b[0m \u003d [code: double, url: string ... 207 more fields]\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1748738805599_1043501213",
+      "id": "paragraph_1748738805599_1043501213",
+      "dateCreated": "2025-06-01 01:46:45.607",
+      "dateStarted": "2025-06-01 13:50:43.164",
+      "dateFinished": "2025-06-01 13:50:43.249",
+      "status": "FINISHED"
+    },
+    {
+      "text": "%spark\n// Remplacer les nulls par \u0027unknown\u0027 en premier\nval  source_df_5\u003d source_df_4.withColumn(\n    \"environmental_score_grade\",\n    when(\n        col(\"environmental_score_grade\").isNull,\n        \"unknown\"\n    ).otherwise(col(\"environmental_score_grade\"))\n)\n// Appliquer la logique de remplacement pour les \u0027unknown\u0027\n.withColumn(\n    \"environmental_score_grade\",\n    when(\n        col(\"environmental_score_grade\") \u003d\u003d\u003d\"unknown\",\n        when(col(\"environmental_score_score\") \u003e\u003d 80, \"a\")\n        .when(col(\"environmental_score_score\") \u003e\u003d 60, \"b\")\n        .when(col(\"environmental_score_score\") \u003e\u003d 40, \"c\")\n        .when(col(\"environmental_score_score\") \u003e\u003d 20, \"d\")\n        .when(col(\"environmental_score_score\") \u003e\u003d 0, \"e\")\n        .otherwise(\"unknown\") \n    ).otherwise(col(\"environmental_score_grade\"))\n)",
+      "user": "anonymous",
+      "dateUpdated": "2025-06-01 13:50:46.966",
+      "progress": 0,
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "results": {},
+        "enabled": true,
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        }
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "\u001b[1m\u001b[34msource_df_5\u001b[0m: \u001b[1m\u001b[32morg.apache.spark.sql.DataFrame\u001b[0m \u003d [code: double, url: string ... 207 more fields]\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1748738883276_515155116",
+      "id": "paragraph_1748738883276_515155116",
+      "dateCreated": "2025-06-01 01:48:03.277",
+      "dateStarted": "2025-06-01 13:50:46.973",
+      "dateFinished": "2025-06-01 13:50:47.073",
+      "status": "FINISHED"
+    },
+    {
+      "text": "import org.apache.spark.sql.functions.{col, when, lit, lower, map, map_filter, to_json}\n\n// Adding the \"serving_info\" column to the source_df_1 DataFrame\nval source_df_6 \u003d source_df_5.withColumn(\n  \"serving_info\",\n  when(\n    // Condition: If either \"serving_size\" or \"quantity\" is not null and not \"unknown\"\n    ((col(\"serving_size\").isNotNull) \u0026\u0026 (lower(col(\"serving_size\")) \u003d!\u003d \"unknown\")) ||\n    ((col(\"quantity\").isNotNull) \u0026\u0026 (lower(col(\"quantity\")) \u003d!\u003d \"unknown\")),\n    // If the condition is true, create a JSON string with \"serving_size\" and \"quantity\"\n    to_json(  // Convert map to JSON string\n      map_filter(\n        map(\n          // Map creation\n          lit(\"serving_size\"), when(\n            (col(\"serving_size\").isNotNull) \u0026\u0026 (lower(col(\"serving_size\")) \u003d!\u003d \"unknown\"),\n            col(\"serving_size\") // Value from \"serving_size\" column\n          ).otherwise(lit(null)),  // Use otherwise to ensure null is handled\n          lit(\"quantity\"), when(\n            (col(\"quantity\").isNotNull) \u0026\u0026 (lower(col(\"quantity\")) \u003d!\u003d \"unknown\"),\n            col(\"quantity\") // Value from \"quantity\" column\n          ).otherwise(lit(null))  // Use otherwise to ensure null is handled\n        ),\n        // Filter out entries with null values\n        ((k, v) \u003d\u003e v.isNotNull)\n      )\n    )\n  ).otherwise(lit(\"unknown\")) // If the condition is false, set value to \"unknown\"\n)\n",
+      "user": "anonymous",
+      "dateUpdated": "2025-06-01 13:50:51.320",
+      "progress": 0,
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "results": {},
+        "enabled": true,
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        }
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "import org.apache.spark.sql.functions.{col, when, lit, lower, map, map_filter, to_json}\n\u001b[1m\u001b[34msource_df_6\u001b[0m: \u001b[1m\u001b[32morg.apache.spark.sql.DataFrame\u001b[0m \u003d [code: double, url: string ... 208 more fields]\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1748739247087_1944815019",
+      "id": "paragraph_1748739247087_1944815019",
+      "dateCreated": "2025-06-01 01:54:07.090",
+      "dateStarted": "2025-06-01 13:50:51.328",
+      "dateFinished": "2025-06-01 13:50:51.448",
+      "status": "FINISHED"
+    },
+    {
+      "text": "%spark\nsource_df_1.select(\"quantity\",\"serving_size\" ,\"serving_info\").show(false)",
+      "user": "anonymous",
+      "dateUpdated": "2025-06-01 08:25:05.535",
+      "progress": 0,
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "results": {},
+        "enabled": true,
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        }
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "+--------+------------+------------------------------------------+\n|quantity|serving_size|serving_info                              |\n+--------+------------+------------------------------------------+\n|NULL    |NULL        |unknown                                   |\n|700ml   |13 g        |{\"serving_size\":\"13 g\",\"quantity\":\"700ml\"}|\n|1000ml  |NULL        |{\"quantity\":\"1000ml\"}                     |\n|NULL    |NULL        |unknown                                   |\n|600 g   |500g        |{\"serving_size\":\"500g\",\"quantity\":\"600 g\"}|\n|NULL    |NULL        |unknown                                   |\n|NULL    |NULL        |unknown                                   |\n|NULL    |NULL        |unknown                                   |\n|g       |7g          |{\"serving_size\":\"7g\",\"quantity\":\"g\"}      |\n|240 g   |6 g         |{\"serving_size\":\"6 g\",\"quantity\":\"240 g\"} |\n|24 oz   |43g         |{\"serving_size\":\"43g\",\"quantity\":\"24 oz\"} |\n|40 g    |31.5g       |{\"serving_size\":\"31.5g\",\"quantity\":\"40 g\"}|\n|NULL    |NULL        |unknown                                   |\n|NULL    |NULL        |unknown                                   |\n|NULL    |NULL        |unknown                                   |\n|NULL    |NULL        |unknown                                   |\n|NULL    |NULL        |unknown                                   |\n|550 g   |NULL        |{\"quantity\":\"550 g\"}                      |\n|NULL    |NULL        |unknown                                   |\n|200ml   |NULL        |{\"quantity\":\"200ml\"}                      |\n+--------+------------+------------------------------------------+\nonly showing top 20 rows\n\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            {
+              "jobUrl": "http://192.168.1.128:4040/jobs/job?id\u003d4"
+            }
+          ],
+          "interpreterSettingId": "spark"
+        }
+      },
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1748739485133_962223663",
+      "id": "paragraph_1748739485133_962223663",
+      "dateCreated": "2025-06-01 01:58:05.133",
+      "dateStarted": "2025-06-01 08:25:05.544",
+      "dateFinished": "2025-06-01 08:25:05.871",
+      "status": "FINISHED"
+    },
+    {
+      "text": "import org.apache.spark.sql.functions.{col, when, lit, lower}\n\nval source_df_7 \u003d source_df_6.withColumn(\n  \"additives\",\n  when(\n    // Si les deux sont null ou unknown ⇒ -1\n    (col(\"additives_tags\").isNull || (lower(col(\"additives_tags\")) \u003d\u003d\u003d \"unknown\")) \u0026\u0026\n    (col(\"additives_n\").isNull || (lower(col(\"additives_n\")) \u003d\u003d\u003d \"unknown\")), \n    lit(-1) // Correct use of lit with a numeric value\n  ).when(\n    // Si au moins un des deux contient des additifs ⇒ 1\n    (col(\"additives_n\") \u003e 0) ||\n    ((col(\"additives_tags\").isNotNull) \u0026\u0026 (lower(col(\"additives_tags\")) \u003d!\u003d \"unknown\")),\n    lit(1) // Correct use of lit with a numeric value\n  ).otherwise(lit(0)) // sinon ⇒ 0 (présence explicite de 0 additif)\n)\n",
+      "user": "anonymous",
+      "dateUpdated": "2025-06-01 13:50:56.544",
+      "progress": 0,
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "results": {},
+        "enabled": true,
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        }
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "import org.apache.spark.sql.functions.{col, when, lit, lower}\n\u001b[1m\u001b[34msource_df_7\u001b[0m: \u001b[1m\u001b[32morg.apache.spark.sql.DataFrame\u001b[0m \u003d [code: double, url: string ... 208 more fields]\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1748739907258_1638182680",
+      "id": "paragraph_1748739907258_1638182680",
+      "dateCreated": "2025-06-01 02:05:07.258",
+      "dateStarted": "2025-06-01 13:50:56.568",
+      "dateFinished": "2025-06-01 13:50:56.660",
+      "status": "FINISHED"
+    },
+    {
+      "text": "source_df_1.select(\"additives\",\"additives_tags\",\"additives_n\").show",
+      "user": "anonymous",
+      "dateUpdated": "2025-06-01 02:08:27.551",
+      "progress": 0,
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "results": {},
+        "enabled": true,
+        "editorSetting": {}
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "+---------+--------------------+-----------+\n|additives|      additives_tags|additives_n|\n+---------+--------------------+-----------+\n|       -1|                NULL|       NULL|\n|        0|                NULL|          0|\n|        0|                NULL|          0|\n|        1|             en:e369|          1|\n|       -1|                NULL|       NULL|\n|       -1|                NULL|       NULL|\n|       -1|                NULL|       NULL|\n|       -1|                NULL|       NULL|\n|       -1|                NULL|       NULL|\n|       -1|                NULL|       NULL|\n|       -1|                NULL|       NULL|\n|       -1|                NULL|       NULL|\n|        1|             en:e412|          1|\n|        1|en:e322,en:e322i,...|          6|\n|       -1|                NULL|       NULL|\n|       -1|                NULL|       NULL|\n|       -1|                NULL|       NULL|\n|       -1|                NULL|       NULL|\n|       -1|                NULL|       NULL|\n|       -1|                NULL|       NULL|\n+---------+--------------------+-----------+\nonly showing top 20 rows\n\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            {
+              "jobUrl": "http://192.168.1.128:4040/jobs/job?id\u003d7"
+            }
+          ],
+          "interpreterSettingId": "spark"
+        }
+      },
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1748740087783_1534168493",
+      "id": "paragraph_1748740087783_1534168493",
+      "dateCreated": "2025-06-01 02:08:07.783",
+      "dateStarted": "2025-06-01 02:08:27.557",
+      "dateFinished": "2025-06-01 02:08:27.933",
+      "status": "FINISHED"
+    },
+    {
+      "text": "import org.apache.spark.sql.functions._\nimport org.apache.spark.sql.Column\n\n// Define the clean_and_split function\ndef cleanAndSplit(colName: String): Column \u003d {\n  expr(s\"transform(split($colName, \u0027,\u0027), x -\u003e lower(regexp_replace(x, \u0027^.*?:\u0027, \u0027\u0027)))\")\n}\n\n// List of columns to merge\nval columnsToMerge \u003d Seq(\"categories_tags\", \"food_groups_tags\", \"food_groups\", \"main_category\")\n\n// Initialize merged_array as null\nvar mergedArray: Column \u003d lit(null)\n\n// Dynamically merge all columns\nfor (colName \u003c- columnsToMerge) {\n  val cleanedArray \u003d when(col(colName).isNotNull, cleanAndSplit(colName)).otherwise(array())\n  if (mergedArray \u003d\u003d lit(null)) {\n    mergedArray \u003d cleanedArray\n  } else {\n    mergedArray \u003d array_union(mergedArray, cleanedArray)\n  }\n}\n\n// Apply array_distinct to remove duplicates and create the final \"combined_tags\" column\nval dfCleaned \u003d source_df_7.withColumn(\"combined_tags_temp\", array_distinct(mergedArray))\n\n// Replace empty arrays with null\nval dfCleanedWithTags \u003d dfCleaned.withColumn(\n  \"combined_tags\",\n  when(size(col(\"combined_tags_temp\")) \u003d\u003d\u003d 0, lit(null)).otherwise(col(\"combined_tags_temp\"))\n).drop(\"combined_tags_temp\")\n\n// Create the pnns_list column\nval dfWithPnnsList \u003d dfCleanedWithTags.withColumn(\n  \"pnns_list\",\n  array(\n    when((col(\"pnns_groups_1\").isNotNull) \u0026\u0026 (lower(col(\"pnns_groups_1\")) \u003d!\u003d \"unknown\"), col(\"pnns_groups_1\")).otherwise(lit(null)),\n    when((col(\"pnns_groups_2\").isNotNull) \u0026\u0026 (lower(col(\"pnns_groups_2\")) \u003d!\u003d \"unknown\"), col(\"pnns_groups_2\")).otherwise(lit(null))\n  )\n)\n\n// Create the categories column by flattening the arrays, removing nulls, and lowercasing\nval source_df_8\u003d dfWithPnnsList.withColumn(\n  \"categories\",\n  expr(\"\"\"\n    array_distinct(\n      transform(\n        filter(flatten(array(combined_tags, pnns_list)), x -\u003e x is not null),\n        x -\u003e lower(x)\n      )\n    )\n  \"\"\")\n)\n",
+      "user": "anonymous",
+      "dateUpdated": "2025-06-01 13:52:30.118",
+      "progress": 0,
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "results": {},
+        "enabled": true,
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        }
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "import org.apache.spark.sql.functions._\nimport org.apache.spark.sql.Column\n\u001b[1m\u001b[34mcleanAndSplit\u001b[0m: \u001b[1m\u001b[32m(colName: String)org.apache.spark.sql.Column\u001b[0m\n\u001b[1m\u001b[34mcolumnsToMerge\u001b[0m: \u001b[1m\u001b[32mSeq[String]\u001b[0m \u003d List(categories_tags, food_groups_tags, food_groups, main_category)\n\u001b[1m\u001b[34mmergedArray\u001b[0m: \u001b[1m\u001b[32morg.apache.spark.sql.Column\u001b[0m \u003d array_union(array_union(array_union(CASE WHEN (categories_tags IS NOT NULL) THEN transform(split(categories_tags, ,), lambdafunction(lower(regexp_replace(x, ^.*?:, )), x)) ELSE array() END, CASE WHEN (food_groups_tags IS NOT NULL) THEN transform(split(food_groups_tags, ,), lambdafunction(lower(regexp_replace(x, ^.*?:, )), x)) ELSE array() END), CASE WHEN (food_groups IS NOT NULL) THEN transform(split(food_groups, ,), lambdafunction(lower(r...\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1748716726816_298809395",
+      "id": "paragraph_1748716726816_298809395",
+      "dateCreated": "2025-05-31 19:38:46.817",
+      "dateStarted": "2025-06-01 13:52:30.121",
+      "dateFinished": "2025-06-01 13:52:30.362",
+      "status": "FINISHED"
+    },
+    {
+      "text": "source_df_1.select(\"categories\",\"pnns_list\", \"combined_tags\").show",
+      "user": "anonymous",
+      "dateUpdated": "2025-06-01 08:25:15.367",
+      "progress": 0,
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "results": {},
+        "enabled": true,
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        }
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "+--------------------+--------------------+--------------------+\n|          categories|           pnns_list|       combined_tags|\n+--------------------+--------------------+--------------------+\n|                NULL|        [NULL, NULL]|                NULL|\n|[beverages-and-be...|[Beverages, Unswe...|[beverages-and-be...|\n|[beverages-and-be...|[Beverages, Unswe...|[beverages-and-be...|\n|                NULL|        [NULL, NULL]|                NULL|\n|                NULL|        [NULL, NULL]|                NULL|\n|                NULL|        [NULL, NULL]|                NULL|\n|                NULL|        [NULL, NULL]|                NULL|\n|                NULL|        [NULL, NULL]|                NULL|\n|                NULL|        [NULL, NULL]|                NULL|\n|[dietary-suppleme...|        [NULL, NULL]|[dietary-suppleme...|\n|                NULL|        [NULL, NULL]|                NULL|\n|                NULL|        [NULL, NULL]|                NULL|\n|                NULL|        [NULL, NULL]|                NULL|\n|                NULL|        [NULL, NULL]|                NULL|\n|                NULL|        [NULL, NULL]|                NULL|\n|                NULL|        [NULL, NULL]|                NULL|\n|                NULL|        [NULL, NULL]|                NULL|\n|                NULL|        [NULL, NULL]|                NULL|\n|                NULL|        [NULL, NULL]|                NULL|\n|[beverages-and-be...|[Beverages, Unswe...|[beverages-and-be...|\n+--------------------+--------------------+--------------------+\nonly showing top 20 rows\n\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            {
+              "jobUrl": "http://192.168.1.128:4040/jobs/job?id\u003d5"
+            }
+          ],
+          "interpreterSettingId": "spark"
+        }
+      },
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1748716870642_776077912",
+      "id": "paragraph_1748716870642_776077912",
+      "dateCreated": "2025-05-31 19:41:10.642",
+      "dateStarted": "2025-06-01 08:25:15.372",
+      "dateFinished": "2025-06-01 08:25:15.698",
+      "status": "FINISHED"
+    },
+    {
+      "text": "import org.apache.spark.sql.functions._\nimport org.apache.spark.sql.{Column,DataFrame}\n\nval source_df_9 \u003d source_df_8.withColumn(\n    \"_ingredients_str\",\n    concat_ws(\",\", col(\"ingredients_tags\"))\n)\n// Define the processIngredients function\ndef processIngredients(df: DataFrame): DataFrame \u003d {\n\n  val commonAllergens \u003d Seq(\n    \"milk\", \"eggs\", \"fish\", \"shellfish\", \"tree nuts\", \"peanuts\", \n    \"wheat\", \"soybeans\", \"gluten\"\n  )\n\n  var dfWithAllergens \u003d df\n\n  // Add columns for each allergen\n  commonAllergens.foreach { allergen \u003d\u003e\n    val allergenColumn \u003d when(col(\"_ingredients_str\").isNull, lit(false))\n      .otherwise(\n        lower(col(\"_ingredients_str\")).contains(allergen) ||\n        lower(coalesce(col(\"allergens\"), lit(\"\"))).contains(allergen)\n      ).cast(\"int\")\n\n    dfWithAllergens \u003d dfWithAllergens.withColumn(\n      s\"contains_${allergen.replace(\" \", \"_\")}\",\n      allergenColumn\n    )\n  }\n\n  // Combine allergen columns into a new \"allergenes\" column\n  val allergenCols \u003d commonAllergens.map(allergen \u003d\u003e\n    col(s\"contains_${allergen.replace(\" \", \"_\")}\")\n  )\n  dfWithAllergens \u003d dfWithAllergens.withColumn(\"allergenes\", allergenCols.reduce(_ + _))\n\n  // Step 3: Add is_vegetarian column using `!` for logical negation\n  dfWithAllergens \u003d dfWithAllergens.withColumn(\n    \"is_vegetarian\",\n    when(col(\"_ingredients_str\").isNull, lit(null))\n      .otherwise(\n        !(lower(col(\"_ingredients_str\")).contains(\"meat\") ||\n        lower(col(\"_ingredients_str\")).contains(\"chicken\") ||\n        lower(col(\"_ingredients_str\")).contains(\"beef\") ||\n        lower(col(\"_ingredients_str\")).contains(\"pork\") ||\n        lower(col(\"_ingredients_str\")).contains(\"fish\"))\n      )\n  )\n\n  // Step 4: Add is_vegan column using `!` for logical negation\n  dfWithAllergens \u003d dfWithAllergens.withColumn(\n    \"is_vegan\",\n    when(col(\"ingredients_text\").isNull, lit(null))\n      .otherwise(\n        col(\"is_vegetarian\") \u0026\u0026\n        !(lower(col(\"_ingredients_str\")).contains(\"milk\") ||\n        lower(col(\"_ingredients_str\")).contains(\"egg\") ||\n        lower(col(\"_ingredients_str\")).contains(\"honey\") ||\n        lower(col(\"_ingredients_str\")).contains(\"cheese\"))\n      )\n  )\n\n  dfWithAllergens\n}\n\n// Apply the function to the DataFrame\nval dfProcessed \u003d processIngredients(source_df_9)\n\n// Drop the temporary \"_ingredients_str\" column\nval source_df_10 \u003d dfProcessed.drop(\"_ingredients_str\")\n",
+      "user": "anonymous",
+      "dateUpdated": "2025-06-01 13:53:02.452",
+      "progress": 0,
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "results": {},
+        "enabled": true,
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        }
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "import org.apache.spark.sql.functions._\nimport org.apache.spark.sql.{Column, DataFrame}\n\u001b[1m\u001b[34msource_df_9\u001b[0m: \u001b[1m\u001b[32morg.apache.spark.sql.DataFrame\u001b[0m \u003d [code: double, url: string ... 211 more fields]\n\u001b[1m\u001b[34mprocessIngredients\u001b[0m: \u001b[1m\u001b[32m(df: org.apache.spark.sql.DataFrame)org.apache.spark.sql.DataFrame\u001b[0m\n\u001b[1m\u001b[34mdfProcessed\u001b[0m: \u001b[1m\u001b[32morg.apache.spark.sql.DataFrame\u001b[0m \u003d [code: double, url: string ... 223 more fields]\n\u001b[1m\u001b[34msource_df_10\u001b[0m: \u001b[1m\u001b[32morg.apache.spark.sql.DataFrame\u001b[0m \u003d [code: double, url: string ... 222 more fields]\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1748728784672_1150071455",
+      "id": "paragraph_1748728784672_1150071455",
+      "dateCreated": "2025-05-31 22:59:44.673",
+      "dateStarted": "2025-06-01 13:53:02.455",
+      "dateFinished": "2025-06-01 13:53:02.874",
+      "status": "FINISHED"
+    },
+    {
+      "text": "",
+      "user": "anonymous",
+      "dateUpdated": "2025-06-01 13:53:33.757",
+      "progress": 0,
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "results": {},
+        "enabled": true,
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        }
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "\u001b[1m\u001b[34mres46\u001b[0m: \u001b[1m\u001b[32morg.apache.spark.sql.DataFrame\u001b[0m \u003d [serving_info: string]\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1748775445611_574851317",
+      "id": "paragraph_1748775445611_574851317",
+      "dateCreated": "2025-06-01 11:57:25.611",
+      "dateStarted": "2025-06-01 13:53:26.368",
+      "dateFinished": "2025-06-01 13:53:26.477",
+      "status": "FINISHED"
+    },
+    {
+      "text": "%spark\n// Try to find the reach nutriments\nval max_nutriments \u003d Map(\n    \"energy_kcal_100g\"-\u003e 1000.0,\n    \"fat_100g\"-\u003e100.0,\n    \"saturated-fat_100g\"-\u003e90.0,\n    \"proteins_100g\"-\u003e90.0,\n    \"carbohydrates_100g\"-\u003e100.0,\n    \"sugars_100g\"-\u003e100.0,\n    \"fiber_100g\" -\u003e 90.0,\n    \"salt_100g\"-\u003e40.0,\n    \"fruits-vegetables-nuts-estimate-from-ingredients_100g\"-\u003e40.0\n)\n\nval cols \u003d source_df_10.columns.filter(max_nutriments.contains)\nval adjusted_cols \u003d cols.map(x \u003d\u003e {\n    var threhold \u003d max_nutriments.getOrElse(x,0)\n    when(col(x) \u003e threhold,threhold).otherwise(col(x))\n})",
+      "user": "anonymous",
+      "dateUpdated": "2025-06-01 13:53:39.787",
+      "progress": 0,
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "results": {},
+        "enabled": true,
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        }
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "\u001b[1m\u001b[34mmax_nutriments\u001b[0m: \u001b[1m\u001b[32mscala.collection.immutable.Map[String,Double]\u001b[0m \u003d Map(salt_100g -\u003e 40.0, fat_100g -\u003e 100.0, fruits-vegetables-nuts-estimate-from-ingredients_100g -\u003e 40.0, energy_kcal_100g -\u003e 1000.0, proteins_100g -\u003e 90.0, fiber_100g -\u003e 90.0, carbohydrates_100g -\u003e 100.0, sugars_100g -\u003e 100.0, saturated-fat_100g -\u003e 90.0)\n\u001b[1m\u001b[34mcols\u001b[0m: \u001b[1m\u001b[32mArray[String]\u001b[0m \u003d Array(fat_100g, saturated-fat_100g, carbohydrates_100g, sugars_100g, fiber_100g, proteins_100g, salt_100g, fruits-vegetables-nuts-estimate-from-ingredients_100g)\n\u001b[1m\u001b[34madjusted_cols\u001b[0m: \u001b[1m\u001b[32mArray[org.apache.spark.sql.Column]\u001b[0m \u003d Array(CASE WHEN (fat_100g \u003e 100.0) THEN 100.0 ELSE fat_100g END, CASE WHEN (saturated-fat_100g \u003e 90.0) THEN 90.0 ELSE saturated-fat_100g END, CASE WHEN (carbohydrat...\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1748742139020_832318742",
+      "id": "paragraph_1748742139020_832318742",
+      "dateCreated": "2025-06-01 02:42:19.020",
+      "dateStarted": "2025-06-01 13:53:39.791",
+      "dateFinished": "2025-06-01 13:53:39.929",
+      "status": "FINISHED"
+    },
+    {
+      "text": "%spark\nval source_df_11  \u003d cols.zip(adjusted_cols).foldLeft(source_df_10)((tempDF,colun) \u003d\u003e tempDF.withColumn(colun._1,colun._2))",
+      "user": "anonymous",
+      "dateUpdated": "2025-06-01 13:53:45.266",
+      "progress": 0,
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "results": {},
+        "enabled": true,
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        }
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "\u001b[1m\u001b[34msource_df_11\u001b[0m: \u001b[1m\u001b[32morg.apache.spark.sql.DataFrame\u001b[0m \u003d [code: double, url: string ... 222 more fields]\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1748737124826_1662014480",
+      "id": "paragraph_1748737124826_1662014480",
+      "dateCreated": "2025-06-01 01:18:44.826",
+      "dateStarted": "2025-06-01 13:53:45.270",
+      "dateFinished": "2025-06-01 13:53:45.602",
+      "status": "FINISHED"
+    },
+    {
+      "text": "import org.apache.spark.sql.functions._\n\n// Fill null values with column averages\nval column_averages \u003d source_df_11.select(\n  mean(\"energy-kcal_100g\").alias(\"avg_energy_kcal\"),\n  mean(\"sugars_100g\").alias(\"avg_sugars\"),\n  mean(\"saturated-fat_100g\").alias(\"avg_saturated_fat\"),\n  mean(\"salt_100g\").alias(\"avg_salt\"),\n  mean(\"fruits-vegetables-nuts-estimate-from-ingredients_100g\").alias(\"avg_fruits\"),\n  mean(\"fiber_100g\").alias(\"avg_fiber\"),\n  mean(\"proteins_100g\").alias(\"avg_protein\"),\n  mean(\"fat_100g\").alias(\"avg_fat\")\n).first()\n\nval filled_df \u003d source_df_11\n  .na.fill(Map(\n    \"energy-kcal_100g\" -\u003e column_averages.getAs[Double](\"avg_energy_kcal\"),\n    \"sugars_100g\" -\u003e column_averages.getAs[Double](\"avg_sugars\"),\n    \"saturated-fat_100g\" -\u003e column_averages.getAs[Double](\"avg_saturated_fat\"),\n    \"salt_100g\" -\u003e column_averages.getAs[Double](\"avg_salt\"),\n    \"fruits-vegetables-nuts-estimate-from-ingredients_100g\" -\u003e column_averages.getAs[Double](\"avg_fruits\"),\n    \"fiber_100g\" -\u003e column_averages.getAs[Double](\"avg_fiber\"),\n    \"proteins_100g\" -\u003e column_averages.getAs[Double](\"avg_protein\"),\n    \"fat_100g\" -\u003e column_averages.getAs[Double](\"avg_fat\")\n\n  ))\n\n// Define energy thresholds\nval energy_thresh \u003d Seq(335.0, 670.0, 1005.0, 1340.0, 1675.0, 2010.0, 2345.0, 2680.0, 3015.0, 4000.0)\nval sugar_thresh \u003d Seq(4.5, 9.0, 13.5, 18.0, 22.5, 27.0, 31.0, 36.0, 40.0, 45.0)\nval sat_fat_thresh \u003d Seq(1.0, 2.0, 3.0, 4.0, 5.0, 6.0, 7.0, 8.0, 9.0, 10.0)\nval sodium_thresh \u003d Seq(90.0, 180.0, 270.0, 360.0, 450.0, 540.0, 630.0, 720.0, 810.0, 900.0)\nval fat_thresh \u003d Seq(3.0, 6.0, 9.0, 12.0, 15.0, 18.0, 21.0, 24.0, 27.0, 30.0)\n\n\nval fiber_thresh \u003d Seq(0.9, 1.9, 2.8, 3.7, 4.7)\nval protein_thresh \u003d Seq(1.6, 3.2, 4.8, 6.4, 8.0)\n\n// Perform transformation\nval transformed_df \u003d filled_df\n  .withColumn(\"energy_kj_100g\", col(\"energy-kcal_100g\") * 4.184)\n  .withColumn(\"energy_pts\", \n    when(col(\"energy_kj_100g\") \u003c\u003d energy_thresh(0), 0)\n    .when(col(\"energy_kj_100g\") \u003c\u003d energy_thresh(1), 1)\n    .when(col(\"energy_kj_100g\") \u003c\u003d energy_thresh(2), 2)\n    .when(col(\"energy_kj_100g\") \u003c\u003d energy_thresh(3), 3)\n    .when(col(\"energy_kj_100g\") \u003c\u003d energy_thresh(4), 4)\n    .when(col(\"energy_kj_100g\") \u003c\u003d energy_thresh(5), 5)\n    .when(col(\"energy_kj_100g\") \u003c\u003d energy_thresh(6), 6)\n    .when(col(\"energy_kj_100g\") \u003c\u003d energy_thresh(7), 7)\n    .when(col(\"energy_kj_100g\") \u003c\u003d energy_thresh(8), 8)\n    .otherwise(9)\n  )\n  .withColumn(\"sugar_pts\", \n    when(col(\"sugars_100g\") \u003c\u003d sugar_thresh(0), 0)\n    .when(col(\"sugars_100g\") \u003c\u003d sugar_thresh(1), 1)\n    .when(col(\"sugars_100g\") \u003c\u003d sugar_thresh(2), 2)\n    .when(col(\"sugars_100g\") \u003c\u003d sugar_thresh(3), 3)\n    .when(col(\"sugars_100g\") \u003c\u003d sugar_thresh(4), 4)\n    .when(col(\"sugars_100g\") \u003c\u003d sugar_thresh(5), 5)\n    .when(col(\"sugars_100g\") \u003c\u003d sugar_thresh(6), 6)\n    .when(col(\"sugars_100g\") \u003c\u003d sugar_thresh(7), 7)\n    .when(col(\"sugars_100g\") \u003c\u003d sugar_thresh(8), 8)\n    .otherwise(9)\n  )\n  .withColumn(\"sat_fat_pts\", \n    when(col(\"saturated-fat_100g\") \u003c\u003d sat_fat_thresh(0), 0)\n    .when(col(\"saturated-fat_100g\") \u003c\u003d sat_fat_thresh(1), 1)\n    .when(col(\"saturated-fat_100g\") \u003c\u003d sat_fat_thresh(2), 2)\n    .when(col(\"saturated-fat_100g\") \u003c\u003d sat_fat_thresh(3), 3)\n    .when(col(\"saturated-fat_100g\") \u003c\u003d sat_fat_thresh(4), 4)\n    .when(col(\"saturated-fat_100g\") \u003c\u003d sat_fat_thresh(5), 5)\n    .when(col(\"saturated-fat_100g\") \u003c\u003d sat_fat_thresh(6), 6)\n    .when(col(\"saturated-fat_100g\") \u003c\u003d sat_fat_thresh(7), 7)\n    .when(col(\"saturated-fat_100g\") \u003c\u003d sat_fat_thresh(8), 8)\n    .otherwise(9)\n  )\n  .withColumn(\"sodium_pts\", \n    when(col(\"salt_100g\") \u003c\u003d sodium_thresh(0), 0)\n    .when(col(\"salt_100g\") \u003c\u003d sodium_thresh(1), 1)\n    .when(col(\"salt_100g\") \u003c\u003d sodium_thresh(2), 2)\n    .when(col(\"salt_100g\") \u003c\u003d sodium_thresh(3), 3)\n    .when(col(\"salt_100g\") \u003c\u003d sodium_thresh(4), 4)\n    .when(col(\"salt_100g\") \u003c\u003d sodium_thresh(5), 5)\n    .when(col(\"salt_100g\") \u003c\u003d sodium_thresh(6), 6)\n    .when(col(\"salt_100g\") \u003c\u003d sodium_thresh(7), 7)\n    .when(col(\"salt_100g\") \u003c\u003d sodium_thresh(8), 8)\n    .otherwise(9)\n  )\n.withColumn(\"fat_pts\", \n    when(col(\"fat_100g\") \u003c\u003d fat_thresh(0), 0)\n    .when(col(\"fat_100g\") \u003c\u003d fat_thresh(1), 1)\n    .when(col(\"fat_100g\") \u003c\u003d fat_thresh(2), 2)\n    .when(col(\"fat_100g\") \u003c\u003d fat_thresh(3), 3)\n    .when(col(\"fat_100g\") \u003c\u003d fat_thresh(4), 4)\n    .when(col(\"fat_100g\") \u003c\u003d fat_thresh(5), 5)\n    .when(col(\"fat_100g\") \u003c\u003d fat_thresh(6), 6)\n    .when(col(\"fat_100g\") \u003c\u003d fat_thresh(7), 7)\n    .when(col(\"fat_100g\") \u003c\u003d fat_thresh(8), 8)\n    .otherwise(9)\n  )\n  \n  // Positive points\n  .withColumn(\"fruits_pts\", \n    when(col(\"fruits-vegetables-nuts-estimate-from-ingredients_100g\") \u003c 40, 0)\n    .when(col(\"fruits-vegetables-nuts-estimate-from-ingredients_100g\") \u003c 60, 1)\n    .when(col(\"fruits-vegetables-nuts-estimate-from-ingredients_100g\") \u003c 80, 2)\n    .otherwise(5)\n  )\n  .withColumn(\"fiber_pts\", \n    when(col(\"fiber_100g\") \u003c\u003d fiber_thresh(0), 0)\n    .when(col(\"fiber_100g\") \u003c\u003d fiber_thresh(1), 1)\n    .when(col(\"fiber_100g\") \u003c\u003d fiber_thresh(2), 2)\n    .when(col(\"fiber_100g\") \u003c\u003d fiber_thresh(3), 3)\n    .otherwise(4)\n  )\n  .withColumn(\"protein_pts\", \n    when(col(\"proteins_100g\") \u003c\u003d protein_thresh(0), 0)\n    .when(col(\"proteins_100g\") \u003c\u003d protein_thresh(1), 1)\n    .when(col(\"proteins_100g\") \u003c\u003d protein_thresh(2), 2)\n    .when(col(\"proteins_100g\") \u003c\u003d protein_thresh(3), 3)\n    .otherwise(4)\n  )\n\n\n  // Calculate final Nutri-Score score\n  .withColumn(\"nutri_score\", \n    col(\"energy_pts\") + col(\"sugar_pts\") + col(\"sat_fat_pts\") + col(\"sodium_pts\") - \n    (col(\"fruits_pts\") + col(\"fiber_pts\") + col(\"protein_pts\")+col(\"fat_pts\"))\n  )\n  \n  // Assign Nutri-Score grade based on final score\n  .withColumn(\"nutriscore_grade\", \n    when(col(\"nutri_score\") \u003c\u003d 0, \"A\")\n    .when(col(\"nutri_score\") \u003c\u003d 5, \"B\")\n    .when(col(\"nutri_score\") \u003c\u003d 10, \"C\")\n    .when(col(\"nutri_score\") \u003c\u003d 15, \"D\")\n    .otherwise(\"E\")\n  )\n\n",
+      "user": "anonymous",
+      "dateUpdated": "2025-06-01 13:54:03.771",
+      "progress": 50,
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "results": {},
+        "enabled": true,
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        }
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "import org.apache.spark.sql.functions._\n\u001b[1m\u001b[34mcolumn_averages\u001b[0m: \u001b[1m\u001b[32morg.apache.spark.sql.Row\u001b[0m \u003d [297.20759647844744,11.864184712801272,4.988984823533484,1.3568894098801116,9.69308971942782,4.151380994057432,9.59922681661149,14.17491248815691]\n\u001b[1m\u001b[34mfilled_df\u001b[0m: \u001b[1m\u001b[32morg.apache.spark.sql.DataFrame\u001b[0m \u003d [code: double, url: string ... 222 more fields]\n\u001b[1m\u001b[34menergy_thresh\u001b[0m: \u001b[1m\u001b[32mSeq[Double]\u001b[0m \u003d List(335.0, 670.0, 1005.0, 1340.0, 1675.0, 2010.0, 2345.0, 2680.0, 3015.0, 4000.0)\n\u001b[1m\u001b[34msugar_thresh\u001b[0m: \u001b[1m\u001b[32mSeq[Double]\u001b[0m \u003d List(4.5, 9.0, 13.5, 18.0, 22.5, 27.0, 31.0, 36.0, 40.0, 45.0)\n\u001b[1m\u001b[34msat_fat_thresh\u001b[0m: \u001b[1m\u001b[32mSeq[Double]\u001b[0m \u003d List(1.0, 2.0, 3.0, 4.0, 5.0, 6.0, 7.0, 8.0, 9.0, 10.0)\n\u001b[1m\u001b[34msodium_thresh\u001b[0m: \u001b[1m\u001b[32mSeq[Double]\u001b[0m \u003d ...\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            {
+              "jobUrl": "http://192.168.1.128:4040/jobs/job?id\u003d24"
+            },
+            {
+              "jobUrl": "http://192.168.1.128:4040/jobs/job?id\u003d25"
+            }
+          ],
+          "interpreterSettingId": "spark"
+        }
+      },
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1748742681197_1034232462",
+      "id": "paragraph_1748742681197_1034232462",
+      "dateCreated": "2025-06-01 02:51:21.197",
+      "dateStarted": "2025-06-01 13:54:03.774",
+      "dateFinished": "2025-06-01 13:55:00.521",
+      "status": "FINISHED"
+    },
+    {
+      "text": "import org.apache.spark.sql.functions._\nimport org.apache.spark.sql.DataFrame\n\n// List of allergen columns\nval allergenCols \u003d Seq(\n  \"contains_milk\", \"contains_eggs\", \"contains_fish\", \"contains_shellfish\",\n  \"contains_tree_nuts\", \"contains_peanuts\", \"contains_wheat\",\n  \"contains_soybeans\", \"contains_gluten\"\n)\n\n// Create a column that sums the allergen indicators (assuming boolean columns)\nval allergenCountCol \u003d allergenCols\n  .map(c \u003d\u003e when(col(c) \u003d\u003d\u003d true, 1).otherwise(0))\n  .reduce(_ + _)\n\n// Add the allergen count column\nval dfWithAllergenCount \u003d transformed_df.withColumn(\"allergen_count\", allergenCountCol)\n\n// Apply rule-based logic to fill nova_group\nval dfFilled \u003d dfWithAllergenCount.withColumn(\"nova_group\",\n  when(col(\"nova_group\").isNull \u0026\u0026 col(\"additives\") \u003d\u003d\u003d true, lit(4))\n    .when(col(\"nova_group\").isNull \u0026\u0026 col(\"additives\") \u003d\u003d\u003d false \u0026\u0026 col(\"allergen_count\") \u003c\u003d 2, lit(1))\n    .when(col(\"nova_group\").isNull \u0026\u0026 col(\"additives\") \u003d\u003d\u003d false \u0026\u0026 col(\"allergen_count\") \u003e 2, lit(3))\n    .when(col(\"nova_group\").isNull, lit(0)) // Default fallback\n    .otherwise(col(\"nova_group\"))\n).drop(\"allergen_count\")\n",
+      "user": "anonymous",
+      "dateUpdated": "2025-06-01 14:01:34.632",
+      "progress": 0,
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "results": {},
+        "enabled": true,
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        }
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "import org.apache.spark.sql.functions._\nimport org.apache.spark.sql.DataFrame\n\u001b[1m\u001b[34mallergenCols\u001b[0m: \u001b[1m\u001b[32mSeq[String]\u001b[0m \u003d List(contains_milk, contains_eggs, contains_fish, contains_shellfish, contains_tree_nuts, contains_peanuts, contains_wheat, contains_soybeans, contains_gluten)\n\u001b[1m\u001b[34mallergenCountCol\u001b[0m: \u001b[1m\u001b[32morg.apache.spark.sql.Column\u001b[0m \u003d ((((((((CASE WHEN (contains_milk \u003d true) THEN 1 ELSE 0 END + CASE WHEN (contains_eggs \u003d true) THEN 1 ELSE 0 END) + CASE WHEN (contains_fish \u003d true) THEN 1 ELSE 0 END) + CASE WHEN (contains_shellfish \u003d true) THEN 1 ELSE 0 END) + CASE WHEN (contains_tree_nuts \u003d true) THEN 1 ELSE 0 END) + CASE WHEN (contains_peanuts \u003d true) THEN 1 ELSE 0 END) + CASE WHEN (contains_wheat \u003d true) THEN 1 ELSE 0 END) + CASE WHEN (contains_soybeans \u003d t...\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1748714010910_804776364",
+      "id": "paragraph_1748714010910_804776364",
+      "dateCreated": "2025-05-31 18:53:30.911",
+      "dateStarted": "2025-06-01 14:01:34.637",
+      "dateFinished": "2025-06-01 14:01:34.904",
+      "status": "FINISHED"
+    },
+    {
+      "text": "",
+      "user": "anonymous",
+      "dateUpdated": "2025-06-01 14:02:10.865",
+      "progress": 0,
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "results": {},
+        "enabled": true,
+        "editorSetting": {}
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "+--------------------+\n|        serving_info|\n+--------------------+\n|             unknown|\n|{\"serving_size\":\"...|\n|{\"quantity\":\"1000...|\n|             unknown|\n|{\"serving_size\":\"...|\n|             unknown|\n|             unknown|\n|             unknown|\n|{\"serving_size\":\"...|\n|{\"serving_size\":\"...|\n|{\"serving_size\":\"...|\n|{\"serving_size\":\"...|\n|             unknown|\n|             unknown|\n|             unknown|\n|             unknown|\n|             unknown|\n|{\"quantity\":\"550 g\"}|\n|             unknown|\n|{\"quantity\":\"200ml\"}|\n+--------------------+\nonly showing top 20 rows\n\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            {
+              "jobUrl": "http://192.168.1.128:4040/jobs/job?id\u003d26"
+            }
+          ],
+          "interpreterSettingId": "spark"
+        }
+      },
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1748782900106_152855755",
+      "id": "paragraph_1748782900106_152855755",
+      "dateCreated": "2025-06-01 14:01:40.107",
+      "dateStarted": "2025-06-01 14:02:03.673",
+      "dateFinished": "2025-06-01 14:02:03.984",
+      "status": "FINISHED"
+    },
+    {
+      "text": "%spark \nval dfFilled_1 \u003d dfFilled.withColumnRenamed(\"environmental_score_grade\", \"ecoscore\")",
+      "user": "anonymous",
+      "dateUpdated": "2025-06-01 14:02:15.350",
+      "progress": 0,
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "results": {},
+        "enabled": true,
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        }
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "\u001b[1m\u001b[34mdfFilled_1\u001b[0m: \u001b[1m\u001b[32morg.apache.spark.sql.DataFrame\u001b[0m \u003d [code: double, url: string ... 232 more fields]\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1748775706149_1087081757",
+      "id": "paragraph_1748775706149_1087081757",
+      "dateCreated": "2025-06-01 12:01:46.149",
+      "dateStarted": "2025-06-01 14:02:15.354",
+      "dateFinished": "2025-06-01 14:02:15.503",
+      "status": "FINISHED"
+    },
+    {
+      "text": "%spark\nval df \u003d dfFilled_1.withColumnRenamed(\"environmental_score_grade\",\"ecoscore\")\n.withColumn(\n    \"countries_tags\",\n    transform(\n        split(col(\"countries_tags\"),\",\"),\n        (x \u003d\u003e regexp_replace(trim(x),\"^.*?:\",\"\"))\n    )\n)",
+      "user": "anonymous",
+      "dateUpdated": "2025-06-01 14:03:02.969",
+      "progress": 0,
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "results": {},
+        "enabled": true,
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        }
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "\u001b[1m\u001b[34mdf\u001b[0m: \u001b[1m\u001b[32morg.apache.spark.sql.DataFrame\u001b[0m \u003d [code: double, url: string ... 232 more fields]\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1748773269823_1542181646",
+      "id": "paragraph_1748773269823_1542181646",
+      "dateCreated": "2025-06-01 11:21:09.826",
+      "dateStarted": "2025-06-01 14:03:02.972",
+      "dateFinished": "2025-06-01 14:03:03.131",
+      "status": "FINISHED"
+    },
+    {
+      "text": "%spark\ndf.select(\"serving_info\")",
+      "user": "anonymous",
+      "dateUpdated": "2025-06-01 14:03:13.542",
+      "progress": 0,
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "results": {},
+        "enabled": true,
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        }
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "\u001b[1m\u001b[34mres54\u001b[0m: \u001b[1m\u001b[32morg.apache.spark.sql.DataFrame\u001b[0m \u003d [serving_info: string]\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1748775224664_2117697460",
+      "id": "paragraph_1748775224664_2117697460",
+      "dateCreated": "2025-06-01 11:53:44.664",
+      "dateStarted": "2025-06-01 14:03:13.544",
+      "dateFinished": "2025-06-01 14:03:13.694",
+      "status": "FINISHED"
+    },
+    {
+      "text": "%spark\nval finished_df \u003d df.filter((size(col(\"ingredients_tags\"))\u003e0).or(col(\"ingredients_tags\").isNotNull))\n",
+      "user": "anonymous",
+      "dateUpdated": "2025-06-01 14:03:17.164",
+      "progress": 0,
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "results": {},
+        "enabled": true,
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        }
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "\u001b[1m\u001b[34mfinished_df\u001b[0m: \u001b[1m\u001b[32morg.apache.spark.sql.Dataset[org.apache.spark.sql.Row]\u001b[0m \u003d [code: double, url: string ... 232 more fields]\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1748775891195_1430535264",
+      "id": "paragraph_1748775891195_1430535264",
+      "dateCreated": "2025-06-01 12:04:51.195",
+      "dateStarted": "2025-06-01 14:03:17.174",
+      "dateFinished": "2025-06-01 14:03:17.315",
+      "status": "FINISHED"
+    },
+    {
+      "text": "%spark\nval columns_to_keep \u003d Seq(\n\"code\",\n\"url\",\n\"product_name\",\n\"categories\",\n\"countries_tags\",\n\"ingredients_tags\",\n\"allergens\",\n\"image_url\",\n\"serving_info\",\n\"additives\",\n\"nutriscore_grade\",\n\"nova_group\",\n\"ecoscore\",\n\"energy-kcal_100g\",\n\"saturated-fat_100g\",\n\"carbohydrates_100g\",\n\"sugars_100g\",\n\"fiber_100g\",\n\"proteins_100g\",\n\"salt_100g\",\n\"contains_milk\",\n\"contains_eggs\",\n\"contains_fish\",\n\"contains_shellfish\",\n\"contains_tree_nuts\",\n\"contains_peanuts\",\n\"contains_wheat\",\n\"contains_soybeans\",\n\"contains_gluten\",\n\"is_vegetarian\",\n\"is_vegan\"\n)\ncolumns_to_keep.length",
+      "user": "anonymous",
+      "dateUpdated": "2025-06-01 14:03:56.526",
+      "progress": 0,
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "results": {},
+        "enabled": true,
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        }
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "\u001b[1m\u001b[34mcolumns_to_keep\u001b[0m: \u001b[1m\u001b[32mSeq[String]\u001b[0m \u003d List(code, url, product_name, categories, countries_tags, ingredients_tags, allergens, image_url, serving_info, additives, nutriscore_grade, nova_group, ecoscore, energy-kcal_100g, saturated-fat_100g, carbohydrates_100g, sugars_100g, fiber_100g, proteins_100g, salt_100g, contains_milk, contains_eggs, contains_fish, contains_shellfish, contains_tree_nuts, contains_peanuts, contains_wheat, contains_soybeans, contains_gluten, is_vegetarian, is_vegan)\n\u001b[1m\u001b[34mres57\u001b[0m: \u001b[1m\u001b[32mInt\u001b[0m \u003d 31\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1748778254383_1467452803",
+      "id": "paragraph_1748778254383_1467452803",
+      "dateCreated": "2025-06-01 12:44:14.383",
+      "dateStarted": "2025-06-01 14:03:56.534",
+      "dateFinished": "2025-06-01 14:03:56.625",
+      "status": "FINISHED"
+    },
+    {
+      "text": "%spark\nval finally_df \u003d finished_df.select(columns_to_keep.map(col):_*)",
+      "user": "anonymous",
+      "dateUpdated": "2025-06-01 14:03:59.030",
+      "progress": 0,
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "results": {},
+        "enabled": true,
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        }
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "\u001b[1m\u001b[34mfinally_df\u001b[0m: \u001b[1m\u001b[32morg.apache.spark.sql.DataFrame\u001b[0m \u003d [code: double, url: string ... 29 more fields]\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1748780312110_1819478485",
+      "id": "paragraph_1748780312110_1819478485",
+      "dateCreated": "2025-06-01 13:18:32.112",
+      "dateStarted": "2025-06-01 14:03:59.042",
+      "dateFinished": "2025-06-01 14:03:59.208",
+      "status": "FINISHED"
+    },
+    {
+      "text": "%spark\nfinally_df.write.\nmode(\"overwrite\")\n.json(\"/home/aes-saouiqui/spark-project/backend/data/cleaned_df.json\")",
+      "user": "anonymous",
+      "dateUpdated": "2025-06-01 14:27:11.691",
+      "progress": 0,
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "results": {},
+        "enabled": true,
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        }
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": []
+      },
+      "apps": [],
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            {
+              "jobUrl": "http://192.168.1.128:4040/jobs/job?id\u003d32"
+            }
+          ],
+          "interpreterSettingId": "spark"
+        }
+      },
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1748781288051_1651892083",
+      "id": "paragraph_1748781288051_1651892083",
+      "dateCreated": "2025-06-01 13:34:48.051",
+      "dateStarted": "2025-06-01 14:27:11.698",
+      "dateFinished": "2025-06-01 14:29:01.829",
+      "status": "FINISHED"
+    },
+    {
+      "text": "%spark\nvar df2\u003d spark.read.format(\"json\")\n.load(\"/home/aes-saouiqui/spark-project/backend/data/cleaned_df.json\")\n.show",
+      "user": "anonymous",
+      "dateUpdated": "2025-06-01 14:31:53.550",
+      "progress": 100,
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "results": {},
+        "enabled": true,
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        }
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "+---------+---------+------------------+--------------------+------------+-------------+-------------+---------------+-------------+----------------+------------------+-----------------+------------------+--------------+----------------+--------+------------------+-----------------+--------------------+--------------------+--------+-------------+----------+----------------+--------------------+----------------+------------------+------------------+--------------------+------------------+--------------------+\n|additives|allergens|carbohydrates_100g|          categories|        code|contains_eggs|contains_fish|contains_gluten|contains_milk|contains_peanuts|contains_shellfish|contains_soybeans|contains_tree_nuts|contains_wheat|  countries_tags|ecoscore|  energy-kcal_100g|       fiber_100g|           image_url|    ingredients_tags|is_vegan|is_vegetarian|nova_group|nutriscore_grade|        product_name|   proteins_100g|         salt_100g|saturated-fat_100g|        serving_info|       sugars_100g|                 url|\n+---------+---------+------------------+--------------------+------------+-------------+-------------+---------------+-------------+----------------+------------------+-----------------+------------------+--------------+----------------+--------+------------------+-----------------+--------------------+--------------------+--------+-------------+----------+----------------+--------------------+----------------+------------------+------------------+--------------------+------------------+--------------------+\n|        0|     NULL|               0.0|[beverages-and-be...|       108.0|            0|            0|              0|            0|               0|                 0|                0|                 0|             0|[germany, italy]| unknown|             360.0|              0.0|https://images.op...|[pure-bovine-coll...|    true|         true|         1|               A|               BP-ER|            90.0|              1.25|               0.0|{\"serving_size\":\"...|               0.0|http://world-en.o...|\n|        0|     NULL|             18.48|[beverages-and-be...|       111.0|            0|            0|              0|            0|               0|                 0|                0|                 0|             0|[germany, italy]| unknown|            216.91|              1.9|https://images.op...|[hvetemel, melbeh...|    true|         true|         1|               A|          Vegan plus|             2.0|              12.0|              1.67|{\"quantity\":\"1000...|             17.95|http://world-en.o...|\n|        1|     NULL|              14.0|                NULL|       273.0|            0|            0|              0|            0|               0|                 0|                0|                 0|             0|         [italy]| unknown|              58.1|              0.0|https://images.op...|[white-grape-juic...|    true|         true|         4|               B|      Pasta Proteica|             0.0|               0.0|               0.0|{\"serving_size\":\"...|              11.6|http://world-en.o...|\n|        1|     NULL|              12.7|                NULL|       274.0|            0|            0|              0|            1|               0|                 0|                0|                 0|             1|         [italy]| unknown|             413.0|              0.0|https://images.op...|[whole-food-prote...|   false|        false|         4|               B|             Protine|            76.2|             0.754|              3.17|{\"serving_size\":\"...|              6.35|http://world-en.o...|\n|        0|     NULL|              60.0|[beverages-and-be...|       409.0|            0|            0|              0|            0|               0|                 0|                0|                 0|             0|[germany, italy]|       a|             303.0|              6.0|https://images.op...|[ginger, condimen...|    true|         true|         1|               B|       Ingwer Wurzel|             7.0|               0.1|               1.0|{\"quantity\":\"200ml\"}|              59.4|http://world-en.o...|\n|        1|     NULL|              49.0|[breakfasts, spre...|       424.0|            0|            0|              0|            0|               0|                 0|                0|                 0|             0|         [italy]| unknown|             552.0|              1.9|https://images.op...|[ashwagandha-herb...|    true|         true|         4|               B|Ashwagandha Extra...|             4.8|              0.01|               1.1|{\"serving_size\":\"...|              49.0|http://world-en.o...|\n|        1|     NULL|              NULL|                NULL|1.02102024E8|            0|            0|              0|            0|               0|                 0|                0|                 0|             0|         [italy]| unknown|297.20759647844744|4.151380994057432|                NULL|[water, ammonium-...|    true|         true|         4|               A|              kiotis|9.59922681661149|1.3568894098801116| 4.988984823533484|             unknown|11.864184712801272|http://world-en.o...|\n|        1|     NULL|              NULL|                NULL| 1.0765227E8|            0|            0|              0|            0|               0|                 0|                0|                 0|             0|         [italy]| unknown|297.20759647844744|4.151380994057432|                NULL|[010765227-222592...|   false|         true|         4|               A|          mylicongas|9.59922681661149|1.3568894098801116| 4.988984823533484|             unknown|11.864184712801272|http://world-en.o...|\n|        0|     NULL|              14.5|[snacks, sweet-sn...|      1407.0|            0|            0|              0|            0|               0|                 0|                0|                 0|             0|         [italy]|       e|             339.0|             28.7|https://images.op...|[cocoa-powder-pro...|    true|         true|         3|               A|    Cacao in polvere|            28.1|              0.05|               6.9|  {\"quantity\":\"1kg\"}|               0.5|http://world-en.o...|\n|        0|     NULL|              NULL|                NULL|  1.782226E8|            0|            0|              0|            0|               0|                 0|                0|                 0|             0|         [italy]| unknown|297.20759647844744|4.151380994057432|                NULL|[foo-composizione...|    true|         true|         1|               A|                Seki|9.59922681661149|1.3568894098801116| 4.988984823533484|             unknown|11.864184712801272|http://world-en.o...|\n|        1|  en:milk|               1.8|[dietary-suppleme...|2.02330877E8|            0|            0|              0|            1|               0|                 0|                0|                 0|             0|         [italy]| unknown|             384.0|              1.5|https://images.op...|[hydrolyzed-whey-...|    true|         true|         4|               A|Hydro 90 BV 104 W...|            88.0|               0.4|               0.7|{\"serving_size\":\"...|               1.0|http://world-en.o...|\n|        1|     NULL|              NULL|[syrups, concentr...|2.04130001E8|            0|            0|              0|            1|               0|                 0|                0|                 0|             0|         [italy]| unknown|297.20759647844744|4.151380994057432|https://images.op...|[cacao-a-ridotto-...|   false|         true|         4|               A|         Power Boost|9.59922681661149|1.3568894098801116| 4.988984823533484|{\"quantity\":\"403 g\"}|11.864184712801272|http://world-en.o...|\n|        0|     NULL|              NULL|                NULL|2.64437413E8|            0|            0|              0|            0|               0|                 0|                0|                 0|             0|         [italy]| unknown|297.20759647844744|4.151380994057432|                NULL|[attie-acute-del-...|    true|         true|         1|               A|         Tachipirina|9.59922681661149|1.3568894098801116| 4.988984823533484|             unknown|11.864184712801272|http://world-en.o...|\n|        0|  en:milk|              23.5|[meals, composite...|2.90153097E8|            0|            0|              0|            1|               0|                 0|                0|                 0|             0|         [italy]| unknown|             142.0|              1.4|https://images.op...|[salsa-al-pomodor...|   false|         true|         4|               A|Risto piatti fusi...|             3.9|               0.9|               1.6|{\"quantity\":\"300 g\"}|               1.8|http://world-en.o...|\n|        1|     NULL|              NULL|                NULL|3.29279583E8|            0|            0|              0|            0|               0|                 0|                0|                 0|             0|         [italy]| unknown|297.20759647844744|4.151380994057432|                NULL|[ne-hon-utilizza-...|   false|         true|         4|               A|           momentact|9.59922681661149|1.3568894098801116| 4.988984823533484|             unknown|11.864184712801272|http://world-en.o...|\n|        1|     NULL|              NULL|                NULL|3.88204465E8|            0|            0|              0|            0|               0|                 0|                0|                 0|             0|         [italy]| unknown|297.20759647844744|4.151380994057432|                NULL|[microcristallina...|    true|         true|         4|               A|              daflon|9.59922681661149|1.3568894098801116| 4.988984823533484|             unknown|11.864184712801272|http://world-en.o...|\n|        0|     NULL|              NULL|[snacks, sweet-sn...|      4587.0|            0|            0|              0|            1|               0|                 0|                0|                 0|             0|         [italy]|       d|297.20759647844744|4.151380994057432|https://images.op...|[sugar, added-sug...|   false|         true|         4|               A|   Dadi di Caramello|9.59922681661149|1.3568894098801116| 4.988984823533484|             unknown|11.864184712801272|http://world-en.o...|\n|        1|     NULL|              52.2|[plant-based-food...|      4714.0|            0|            0|              0|            0|               0|                 0|                0|                 0|             0|         [italy]| unknown|             304.0|             1.88|https://images.op...|[farina-di-grano-...|    true|         true|         4|               A|piadina romagnola...|            7.09|              1.62|              2.48|{\"serving_size\":\"...|              1.62|http://world-en.o...|\n|        1|     NULL|              NULL|                NULL|4.77644455E8|            0|            0|              0|            0|               0|                 0|                0|                 0|             0|         [italy]| unknown|297.20759647844744|4.151380994057432|                NULL|[mg, flacone-da-2...|    true|         true|         4|               A|              nexium|9.59922681661149|1.3568894098801116| 4.988984823533484|             unknown|11.864184712801272|http://world-en.o...|\n|        0|     NULL|              NULL|                NULL|5.46294666E8|            0|            0|              0|            0|               0|                 0|                0|                 0|             0|         [italy]| unknown|297.20759647844744|4.151380994057432|                NULL|[aneo-enza-e-di-n...|   false|         true|         1|               A|              minias|9.59922681661149|1.3568894098801116| 4.988984823533484|             unknown|11.864184712801272|http://world-en.o...|\n+---------+---------+------------------+--------------------+------------+-------------+-------------+---------------+-------------+----------------+------------------+-----------------+------------------+--------------+----------------+--------+------------------+-----------------+--------------------+--------------------+--------+-------------+----------+----------------+--------------------+----------------+------------------+------------------+--------------------+------------------+--------------------+\nonly showing top 20 rows\n\n\u001b[1m\u001b[34mdf2\u001b[0m: \u001b[1m\u001b[32mUnit\u001b[0m \u003d ()\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            {
+              "jobUrl": "http://192.168.1.128:4040/jobs/job?id\u003d33"
+            },
+            {
+              "jobUrl": "http://192.168.1.128:4040/jobs/job?id\u003d34"
+            }
+          ],
+          "interpreterSettingId": "spark"
+        }
+      },
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1748783126489_1941682734",
+      "id": "paragraph_1748783126489_1941682734",
+      "dateCreated": "2025-06-01 14:05:26.489",
+      "dateStarted": "2025-06-01 14:31:53.560",
+      "dateFinished": "2025-06-01 14:31:55.069",
+      "status": "FINISHED"
+    },
+    {
+      "text": "%spark\n",
+      "user": "anonymous",
+      "dateUpdated": "2025-06-01 14:10:32.212",
+      "progress": 0,
+      "config": {},
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1748783432210_2128274663",
+      "id": "paragraph_1748783432210_2128274663",
+      "dateCreated": "2025-06-01 14:10:32.212",
+      "status": "READY"
+    }
+  ],
+  "name": "Cleaning_Final",
+  "id": "2KYH42JSP",
+  "defaultInterpreterGroup": "spark",
+  "version": "0.12.0",
+  "noteParams": {},
+  "noteForms": {},
+  "angularObjects": {},
+  "config": {
+    "isZeppelinNotebookCronEnable": false
+  },
+  "info": {}
+}

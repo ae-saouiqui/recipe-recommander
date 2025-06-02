@@ -1,0 +1,1610 @@
+{
+  "paragraphs": [
+    {
+      "text": "%pyspark\n# Check the existence of the dataframe\nfrom pathlib import Path\nsource_path \u003d Path(\"/home/aes-saouiqui/spark-project/backend/data/results/data_final_amine.json\")\nsource_path.exists()\n",
+      "user": "anonymous",
+      "dateUpdated": "2025-06-02 15:22:50.575",
+      "progress": 0,
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "results": {},
+        "enabled": true,
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        }
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "True\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1748785841088_1702360757",
+      "id": "paragraph_1748785841088_1702360757",
+      "dateCreated": "2025-06-01 14:50:41.088",
+      "dateStarted": "2025-06-02 15:22:50.584",
+      "dateFinished": "2025-06-02 15:22:50.626",
+      "status": "FINISHED"
+    },
+    {
+      "text": "%pyspark\nimport pyspark.sql.functions as F\n# load the dataframe \ndf \u003d spark.read\\\n.format(\"json\")\\\n.load(str(source_path))\n# \\\n# .withColumn(\"id\",F.monotonically_increasing_id())\n",
+      "user": "anonymous",
+      "dateUpdated": "2025-06-02 15:22:52.763",
+      "progress": 0,
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "results": {},
+        "enabled": true,
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        }
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": []
+      },
+      "apps": [],
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            {
+              "jobUrl": "http://192.168.1.128:4040/jobs/job?id\u003d0"
+            }
+          ],
+          "interpreterSettingId": "spark"
+        }
+      },
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1748787727499_983942529",
+      "id": "paragraph_1748787727499_983942529",
+      "dateCreated": "2025-06-01 15:22:07.499",
+      "dateStarted": "2025-06-02 15:22:52.769",
+      "dateFinished": "2025-06-02 15:23:02.520",
+      "status": "FINISHED"
+    },
+    {
+      "text": "%pyspark\ndf.write\\\n.format(\"mongodb\")\\\n.mode(\"overwrite\")\\\n.option(\"uri\",\"mongodb://localhost:27017/\")\\\n.option(\"database\",\"local\")\\\n.option(\"collection\",\"products\")\\\n.save()",
+      "user": "anonymous",
+      "dateUpdated": "2025-06-02 15:25:27.767",
+      "progress": 0,
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "results": {},
+        "enabled": true,
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        }
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": []
+      },
+      "apps": [],
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            {
+              "jobUrl": "http://192.168.1.128:4040/jobs/job?id\u003d1"
+            }
+          ],
+          "interpreterSettingId": "spark"
+        }
+      },
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1748873335617_69710795",
+      "id": "paragraph_1748873335617_69710795",
+      "dateCreated": "2025-06-02 15:08:55.617",
+      "dateStarted": "2025-06-02 15:25:27.774",
+      "dateFinished": "2025-06-02 15:26:07.098",
+      "status": "FINISHED"
+    },
+    {
+      "text": "# %pyspark\n# # Save the model first \n# df.coalesce(1).write.mode(\"overwrite\")\\\n# .json(\"/home/aes-saouiqui/spark-project/backend/data/results/data_final_amine.json\")",
+      "user": "anonymous",
+      "dateUpdated": "2025-06-02 15:01:35.512",
+      "progress": 0,
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "results": {},
+        "enabled": true,
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        }
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": []
+      },
+      "apps": [],
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            {
+              "jobUrl": "http://192.168.1.128:4040/jobs/job?id\u003d4"
+            }
+          ],
+          "interpreterSettingId": "spark"
+        }
+      },
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1748870644159_343523096",
+      "id": "paragraph_1748870644159_343523096",
+      "dateCreated": "2025-06-02 14:24:04.159",
+      "dateStarted": "2025-06-02 14:32:34.972",
+      "dateFinished": "2025-06-02 14:32:59.556",
+      "status": "FINISHED"
+    },
+    {
+      "text": "%pyspark\n# Show the data frame \ndf.show(truncate\u003dFalse)",
+      "user": "anonymous",
+      "dateUpdated": "2025-06-02 15:22:21.912",
+      "progress": 0,
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "results": {},
+        "enabled": true,
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        }
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "ERROR",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "Fail to execute line 3: df.show(truncate\u003dFalse)\nTraceback (most recent call last):\n  File \"/tmp/python11077434623775122762/zeppelin_python.py\", line 167, in \u003cmodule\u003e\n    exec(code, _zcUserQueryNameSpace)\n  File \"\u003cstdin\u003e\", line 3, in \u003cmodule\u003e\nNameError: name \u0027df\u0027 is not defined\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1748787793256_1393190259",
+      "id": "paragraph_1748787793256_1393190259",
+      "dateCreated": "2025-06-01 15:23:13.256",
+      "dateStarted": "2025-06-02 15:22:21.919",
+      "dateFinished": "2025-06-02 15:22:43.771",
+      "status": "ERROR"
+    },
+    {
+      "text": "%pyspark\n# Drop duplicates based on the code and the product name \ndf \u003d df.dropDuplicates([\"product_name\"])",
+      "user": "anonymous",
+      "dateUpdated": "2025-06-02 15:01:50.071",
+      "progress": 0,
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "results": {},
+        "enabled": true,
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        }
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": []
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1748787849003_1591212480",
+      "id": "paragraph_1748787849003_1591212480",
+      "dateCreated": "2025-06-01 15:24:09.003",
+      "dateStarted": "2025-06-02 15:01:50.079",
+      "dateFinished": "2025-06-02 15:01:50.110",
+      "status": "FINISHED"
+    },
+    {
+      "text": "%pyspark\ndf.show(truncate\u003dFalse)",
+      "user": "anonymous",
+      "dateUpdated": "2025-06-01 23:25:18.367",
+      "progress": 0,
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "results": {},
+        "enabled": true,
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        }
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "+---------+-----------------------------+------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+---------------------+-------------+-------------+---------------+-------------+----------------+------------------+-----------------+------------------+--------------+----------------------+--------+----------------+-----------+-------------------------------------------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------+-------------+----------+----------------+----------------------------------------------------------------------------------------------------------------------------+-------------+------------+------------------+------------+------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-----------+\n|additives|allergens                    |carbohydrates_100g|categories                                                                                                                                                                     |code                 |contains_eggs|contains_fish|contains_gluten|contains_milk|contains_peanuts|contains_shellfish|contains_soybeans|contains_tree_nuts|contains_wheat|countries_tags        |ecoscore|energy-kcal_100g|fiber_100g |image_url                                                                            |ingredients_tags                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |is_vegan|is_vegetarian|nova_group|nutriscore_grade|product_name                                                                                                                |proteins_100g|salt_100g   |saturated-fat_100g|serving_info|sugars_100g |url                                                                                                                                                                                                |id         |\n+---------+-----------------------------+------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+---------------------+-------------+-------------+---------------+-------------+----------------+------------------+-----------------+------------------+--------------+----------------------+--------+----------------+-----------+-------------------------------------------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------+-------------+----------+----------------+----------------------------------------------------------------------------------------------------------------------------+-------------+------------+------------------+------------+------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-----------+\n|1        |NULL                         |12.5              |[beverages, carbonated-drinks, sodas, sweetened-beverages, sweetened beverages]                                                                                                |6.1500127161E10      |0            |0            |0              |0            |0               |0                 |0                |0                 |0             |[united-states]       |NULL    |0.0             |3.117331453|NULL                                                                                 |[carbonated-water, water, sugar, added-sugar, disaccharide, e330, natural-and-artificial-flavouring, flavouring, natural-flavouring, artificial-flavouring, e212, e414, e445, e102, preservative]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |1.0     |true         |4.0       |B               |!Ajua!, Caffeine Free Soda, Pineapple                                                                                       |0.0          |0.0375      |5.5047971986      |NULL        |12.08       |http://world-en.openfoodfacts.org/product/0061500127161/ajua-caffeine-free-soda-pineapple                                                                                                          |8589970623 |\n|1        |NULL                         |0.0               |[meats-and-their-products, meats, fish-meat-eggs, meat, meat-other-than-poultry, fish meat eggs]                                                                               |7.0247758514E10      |0            |0            |0              |0            |0               |0                 |0                |0                 |0             |[united-states, world]|NULL    |0.0             |0.0        |NULL                                                                                 |[water, salt, sugar, added-sugar, disaccharide, e339, e316, e250]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |1.0     |true         |3.0       |A               |\"\"Bacn,Slab,Slcd,Mr,10/14,30#,Z\"\"                                                                                           |26.7         |4.5         |20.0              |NULL        |0.0         |http://world-en.openfoodfacts.org/product/0070247758514/bacn-slab-slcd-mr-10-14-30-z-farmland                                                                                                      |17179906121|\n|1        |NULL                         |0.0               |[meats-and-their-products, meats, fish-meat-eggs, meat, meat-other-than-poultry, fish meat eggs]                                                                               |7.0247170019E10      |0            |0            |0              |0            |0               |0                 |0                |0                 |0             |[united-states, world]|NULL    |0.0             |0.0        |NULL                                                                                 |[water, salt, sugar, added-sugar, disaccharide, e339, e316, e250]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |1.0     |true         |3.0       |A               |\"\"Bacn,Ss,Bm,18/22,15#,Z\"\"                                                                                                  |26.7         |4.5         |20.0              |NULL        |0.0         |http://world-en.openfoodfacts.org/product/0070247170019/bacn-ss-bm-18-22-15-z-farmland                                                                                                             |25769838567|\n|1        |NULL                         |0.0               |[meats-and-their-products, meats, fish-meat-eggs, meat, meat-other-than-poultry, fish meat eggs]                                                                               |7.0247170309E10      |0            |0            |0              |0            |0               |0                 |0                |0                 |0             |[united-states, world]|NULL    |0.0             |0.0        |NULL                                                                                 |[water, salt, sugar, added-sugar, disaccharide, e339, e316, e250]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |1.0     |true         |3.0       |A               |\"\"Bacn,Ss,Nw-Sm,14/18,15#\"\"                                                                                                 |26.3         |4.47        |18.4              |NULL        |0.0         |http://world-en.openfoodfacts.org/product/0070247170309/bacn-ss-nw-sm-14-18-15-farmland                                                                                                            |46889      |\n|0        |NULL                         |0.0               |[meats-and-their-products, meats, fish-meat-eggs, meat, meat-other-than-poultry, fish meat eggs]                                                                               |7.0247404176E10      |0            |0            |0              |0            |0               |0                 |0                |0                 |0             |[united-states, world]|NULL    |0.0             |0.0        |NULL                                                                                 |[black-angus-beef-trimmings]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |0.0     |false        |NULL      |A               |\"\"Beef,Grnd,Pty,40/4Oz,Fbab-Sm,10#,Z\"\"                                                                                      |17.1         |0.178       |11.2              |NULL        |0.0         |http://world-en.openfoodfacts.org/product/0070247404176/beef-grnd-pty-40-4oz-fbab-sm-10-z-farmland                                                                                                 |25769835860|\n|1        |NULL                         |0.0               |[meats-and-their-products, meats, fish-meat-eggs, meat, meat-other-than-poultry, fish meat eggs]                                                                               |7.0247150219E10      |0            |0            |0              |0            |0               |0                 |0                |0                 |0             |[united-states, world]|NULL    |0.0             |0.0        |NULL                                                                                 |[water, contains-2-and-less-of-sodium-phosphates, e261, e326, salt]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |1.0     |true         |4.0       |A               |\"\"Chop,Bi,Cc,Gm,Et12,4Oz,10#,Z\"\"                                                                                            |17.9         |0.471       |4.46              |NULL        |0.0         |http://world-en.openfoodfacts.org/product/0070247150219/chop-bi-cc-gm-et12-4oz-10-z-farmland                                                                                                       |17179905030|\n|1        |NULL                         |3.57              |[meats-and-their-products, meats, fish-meat-eggs, meat, meat-other-than-poultry, fish meat eggs]                                                                               |1.0070247193770002E13|0            |0            |0              |0            |0               |0                 |0                |0                 |0             |[united-states, world]|NULL    |0.0             |0.0        |NULL                                                                                 |[water, dextrose, added-sugar, monosaccharide, glucose, salt, e326, e339, e262ii, e262, e316, e250]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |1.0     |true         |4.0       |A               |\"\"Ham,Ckd,96Wa,Ctry Lean,4X6,4/13#\"\"                                                                                        |28.6         |5.22        |1.79              |NULL        |3.57        |http://world-en.openfoodfacts.org/product/10070247193770/ham-ckd-96wa-ctry-lean-4x6-4-13-farmland                                                                                                  |17179954522|\n|0        |en:pork                      |0.0               |[meats-and-their-products, meats, fish-meat-eggs, meat, meat-other-than-poultry, fish meat eggs]                                                                               |1.0070247165371E13   |0            |0            |0              |0            |0               |0                 |0                |0                 |0             |[united-states, world]|NULL    |0.0             |0.0        |NULL                                                                                 |[pork, animal, water, salt, e339, sugar, added-sugar, disaccharide, spice, condiment, paprika]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |0.0     |false        |3.0       |A               |\"\"Pk,Smkd,Pulled,Gm,2/5#,Z\"\"                                                                                                |34.5         |0.387       |7.14              |NULL        |0.0         |http://world-en.openfoodfacts.org/product/10070247165371/pk-smkd-pulled-gm-2-5-z-farmland                                                                                                          |25769887307|\n|1        |en:pork                      |0.0               |[meats-and-their-products, prepared-meats, sausages, fish-meat-eggs, processed-meat, fish meat eggs, processed meat]                                                           |1.0070247174946E13   |0            |0            |0              |0            |0               |0                 |0                |0                 |0             |[united-states, world]|NULL    |0.0             |0.0        |NULL                                                                                 |[pork, animal, water, salt, dextrose, added-sugar, monosaccharide, glucose, e316, flavouring, sodium-notrite, smoke-flavouring]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |0.0     |false        |4.0       |A               |\"\"Saus,Smkd,Split,2/6#,Z\"\"                                                                                                  |12.8         |2.12        |7.69              |NULL        |0.0         |http://world-en.openfoodfacts.org/product/10070247174946/saus-smkd-split-2-6-z-farmland                                                                                                            |90515      |\n|1        |NULL                         |0.0               |[meats-and-their-products, meats, prepared-meats, fish-meat-eggs, processed-meat, fish meat eggs, processed meat]                                                              |7.4893000508E10      |0            |0            |0              |0            |0               |0                 |0                |0                 |0             |[united-states]       |NULL    |0.0             |0.0        |NULL                                                                                 |[pork-stomachs, water, e325, salt, spice, condiment, sodium-diacetae]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |0.0     |false        |4.0       |A               |\"c\" loaf                                                                                                                    |23.21        |1.6975      |2.68              |NULL        |0.0         |http://world-en.openfoodfacts.org/product/0074893000508/c-loaf                                                                                                                                     |50664      |\n|0        |en:nuts,en:sesame-seeds      |28.57             |[snacks, sweet-snacks, biscuits-and-cakes, sugary-snacks, sugary snacks, biscuits and cakes]                                                                                   |8.53131004269E11     |0            |0            |0              |0            |0               |0                 |0                |0                 |0             |[united-states]       |NULL    |0.0             |14.3       |NULL                                                                                 |[kale, vegetable, brassica, cabbage, golden-flax-seeds, seed, flax, flax-seed, sunflower-seed, plant, sunflower, cashew-nuts, nut, tree-nut, sesame-seeds, sesame, nutritional-yeast, yeast, cider-vinegar, vinegar, hemp-seed, pumpkin-seed, fruit-vegetable, pumpkin, sea-salt, salt, onion, root-vegetable, onion-family-vegetable, dill-weed, black-pepper, pepper]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |1.0     |true         |3.0       |A               |\"cheezy\" dill                                                                                                               |21.43        |2.8575      |3.57              |NULL        |3.57        |http://world-en.openfoodfacts.org/product/0853131004269/cheezy-dill                                                                                                                                |8590016084 |\n|1        |en:celery                    |68.57             |[condiments, groceries]                                                                                                                                                        |7.60263300063E11     |0            |0            |0              |0            |0               |0                 |0                |0                 |0             |[united-states]       |NULL    |0.0             |17.1       |NULL                                                                                 |[pinto-beans, vegetable, legume, pulse, red-bean, black-bean, onion, root-vegetable, onion-family-vegetable, long-grain-parboiled-rice, rice, long-grain-rice, parboiled-rice, sugar, added-sugar, disaccharide, salt, celery, stalk-vegetable, red-and-green-bell-peppers, fruit-vegetable, bell-pepper, red-bell-pepper, green-bell-pepper, hydrolysed-soy-protein, protein, plant-protein, hydrolysed-vegetable-protein, soy-protein, garlic, spice, condiment, chili-pepper, beef-broth, animal, beef, broth, corn-starch, starch, chicken-fat, oil-and-fat, fat, animal-fat, poultry-fat, e150a, e330, e631, e627, beef-fat, natural-flavouring, flavouring, e375, ferric-orthophosphate, minerals, iron, thiamin-mononitrate, thiamin, folic-acid, folate]                                                                                                                     |0.0     |false        |4.0       |A               |\"darn good\" chili soup mix                                                                                                  |17.14        |4.4275      |0.0               |NULL        |8.57        |http://world-en.openfoodfacts.org/product/0760263300063/darn-good-chili-soup-mix                                                                                                                   |76889      |\n|0        |NULL                         |38.89             |[condiments, sauces, groceries, fats-and-sauces, dressings-and-sauces, fat and sauces, dressings and sauces]                                                                   |8.52541002445E11     |0            |0            |0              |0            |0               |0                 |0                |0                 |0             |[united-states]       |NULL    |0.0             |0.0        |NULL                                                                                 |[ketchup, sauce, fresh-mortgage-lifter-tomatoes, whirl-butter, worcestershire, white-vinegar, vinegar, hickory-smoke, bourbon, chili-pepper, vegetable, fruit-vegetable, garlic, root-vegetable, onion-family-vegetable, onion, chipotle, jalapeno-pepper, black-pepper, seed, pepper, brown-sugar, added-sugar, disaccharide, sugar, honey, molasses]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |0.0     |true         |3.0       |C               |\"mortgage lifter\" barbecue sauce                                                                                            |0.0          |2.8475      |0.0               |NULL        |36.11       |http://world-en.openfoodfacts.org/product/0852541002445/mortgage-lifter-barbecue-sauce                                                                                                             |8590019447 |\n|1        |NULL                         |5.37              |[meals, soups, composite-foods, one-dish-meals, composite foods, one-dish meals]                                                                                               |1.3562101375E10      |0            |0            |0              |0            |0               |0                 |0                |0                 |1             |[united-states]       |NULL    |0.0             |0.4        |https://images.openfoodfacts.org/images/products/001/356/210/1375/front_en.4.400.jpg |[chicken-broth, poultry, chicken, broth, poultry-broth, pasta, dough, carrot, vegetable, root-vegetable, taproot-vegetable, corn-starch, starch, carrot-puree, chicken-fat, oil-and-fat, fat, animal-fat, poultry-fat, sea-salt, salt, chicken-flavouring, flavouring, onion, onion-family-vegetable, carrot-juice, vegetable-juice, garlic, celery-puree, stalk-vegetable, celery, colour, tomato-concentrate, fruit-vegetable, tomato, celery-seed, seed, carrot-powder, potato-flour, flour, tuber, potato, thyme, herb, e392, rosemary, canola-oil, vegetable-oil-and-fat, rapeseed-oil, black-pepper-oil, water, semolina-wheat, egg-white, egg, turmeric, condiment, spice, e160b]                                                                                                                                                                                             |0.0     |false        |4.0       |A               |\u0026Chicken Broth Soup Bunny Pasta Annie;                                                                                      |1.24         |0.6925      |0.21              |NULL        |0.41        |http://world-en.openfoodfacts.org/product/0013562101375/chicken-broth-soup-bunny-pasta-annie                                                                                                       |8589940331 |\n|1        |NULL                         |8.47              |[beverages, carbonated-drinks, sodas, sweetened-beverages, sweetened beverages]                                                                                                |7.2275100204E10      |0            |0            |0              |0            |0               |0                 |0                |0                 |0             |[united-states]       |NULL    |0.0             |3.117331453|https://images.openfoodfacts.org/images/products/007/227/510/0204/front_en.5.400.jpg |[carbonated-water, water, real-sugar, corn-sweetener, e422, ginger, condiment, spice, natural-and-artificial-flavouring, flavouring, natural-flavouring, artificial-flavouring, e330, e211, e338, e150a, caffeine, preservative]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |1.0     |true         |4.0       |A               |\u0026quot; A Late One\u0026quot; Soft Drink                                                                                          |0.0          |0.0215      |0.0               |NULL        |8.47        |http://world-en.openfoodfacts.org/product/0072275100204/a-late-one-soft-drink-ale-8-one-bottling-co                                                                                                |42484      |\n|0        |NULL                         |NULL              |[plant-based-foods-and-beverages, plant-based-foods, seeds, sunflower-seeds-and-their-products, sunflower-seeds]                                                               |8.600082662E11       |0            |0            |0              |0            |0               |0                 |0                |0                 |0             |[united-states]       |NULL    |0.0             |3.117331453|https://images.openfoodfacts.org/images/products/086/000/826/6200/front_en.3.400.jpg |[sunflower-seed, plant, seed, sunflower, salt]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |1.0     |true         |3.0       |A               |\u0026quot;OG\u0026quot; Original Flavored Sunflower Seeds                                                                            |8.4175496344 |1.3125264306|5.5047971986      |NULL        |16.839158803|http://world-en.openfoodfacts.org/product/0860008266200/og-original-flavored-sunflower-seeds-smackin                                                                                               |17179952951|\n|1        |en:gluten,en:milk,en:soybeans|75.7              |[snacks, sweet-snacks, bars, cereal-bars, fruits-cereal-bars, strawberry-cereal-bars, sugary-snacks, biscuits-and-cakes, sugary snacks, biscuits and cakes]                    |504676.0             |0            |0            |1              |1            |0               |0                 |1                |0                 |1             |[united-states]       |NULL    |0.0             |2.7        |https://images.openfoodfacts.org/images/products/000/000/050/4676/front_en.23.400.jpg|[strawberry-filling, wheat-flour, cereal, flour, wheat, cereal-flour, cane-invert-syrup, added-sugar, disaccharide, monosaccharide, invert-sugar, sugar-syrup, invert-sugar-syrup, canola-oil, oil-and-fat, vegetable-oil-and-fat, rapeseed-oil, cane-sugar, sugar, wheat-bran, oat-flour, oat, contains-2-and-less-wheat-gluten, honey, skimmed-milk-powder, dairy, milk-powder, e336i, e336, natural-flavouring, flavouring, e500ii, e500, sea-salt, salt, vitamin-b-blend, soya-lecithin, e322, e322i, strawberry, fruit, berries, apple, malaceous-fruit, fruit-juice-concentrate, tapioca, starch, e422, e330, e440a, e410, red-cabbage, vegetable, brassica, cabbage, e160b, e375, pyridoxine-hydrochloride, vitamins, vitamin-b6, e101, thiamin-hydrochloride, thiamin, folic-acid, folate, cyanocobalamin, vitamin-b12, pineapple, peach, prunus-species-fruit, pear, colour]|0.0     |true         |4.0       |C               |\u0026quot;This Strawberry Walks Into a Bar...\u0026quot;                                                                             |5.41         |0.507       |5.5047971986      |NULL        |43.2        |http://world-en.openfoodfacts.org/product/00504676/this-strawberry-walks-into-a-bar-trader-joe-s                                                                                                   |25769905128|\n|1        |NULL                         |68.57             |[condiments, meals, soups, groceries, composite-foods, one-dish-meals, composite foods, one-dish meals]                                                                        |7.60263000291E11     |0            |0            |0              |0            |0               |0                 |0                |0                 |0             |[united-states]       |NULL    |0.0             |17.1       |NULL                                                                                 |[pinto-beans, vegetable, legume, pulse, red-bean, black-bean, onion, root-vegetable, onion-family-vegetable, long-grain-parboiled-rice, rice, long-grain-rice, parboiled-rice, sugar, added-sugar, disaccharide, salt, celery, stalk-vegetable, red-and-green-bell-peppers, fruit-vegetable, bell-pepper, red-bell-pepper, green-bell-pepper, hydrolysed-soy-protein, protein, plant-protein, hydrolysed-vegetable-protein, soy-protein, garlic, spice, condiment, chili-pepper, beef-broth, animal, beef, broth, corn-starch, starch, chicken-fat, oil-and-fat, fat, animal-fat, poultry-fat, e150a, e330, e631, e627, beef-fat, natural-flavouring, flavouring, e375, ferric-orthophosphate, minerals, iron, thiamin-mononitrate, thiamin, folic-acid, folate]                                                                                                                     |0.0     |false        |4.0       |A               |\u0026quot;darn good\u0026quot; delicious classic chili made with three types of beans and a blend of spices soup mix, darn good chili|17.14        |3.8575      |0.0               |NULL        |8.57        |http://world-en.openfoodfacts.org/product/0760263000291/darn-good-delicious-classic-chili-made-with-three-types-of-beans-and-a-blend-of-spices-soup-mix-darn-good-chili-bear-creek-country-kitchens|17179936927|\n|0        |NULL                         |13.5              |[plant-based-foods-and-beverages, beverages, plant-based-beverages, fruit-based-beverages, juices-and-nectars, fruit-juices, unsweetened-beverages, apple-juices, fruit juices]|8.516210030749999E11 |0            |0            |0              |0            |0               |0                 |0                |0                 |0             |[united-states]       |NULL    |0.0             |3.117331453|NULL                                                                                 |[gala-apple, fruit, malaceous-fruit, apple, vitamin-c]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |1.0     |true         |1.0       |B               |\u0027tude gala\u0027tude raw gala apple juice                                                                                        |0.0          |0.0         |5.5047971986      |NULL        |12.66       |http://world-en.openfoodfacts.org/product/0851621003075/tude-gala-tude-raw-gala-apple-juice-fresh-matters-llc                                                                                      |25769907178|\n|1        |NULL                         |3.57              |[condiments, groceries]                                                                                                                                                        |7.14444001218E11     |0            |1            |0              |0            |0               |1                 |0                |0                 |0             |[united-states]       |NULL    |0.0             |1.0        |NULL                                                                                 |[shrimp, shellfish, crustacean, salt, e129]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |0.0     |false        |4.0       |A               |(Ground Shrimp)                                                                                                             |66.46        |4.4925      |1.61              |NULL        |2.39        |http://world-en.openfoodfacts.org/product/0714444001218/ground-shrimp-mi-costenita                                                                                                                 |69449      |\n+---------+-----------------------------+------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+---------------------+-------------+-------------+---------------+-------------+----------------+------------------+-----------------+------------------+--------------+----------------------+--------+----------------+-----------+-------------------------------------------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------+-------------+----------+----------------+----------------------------------------------------------------------------------------------------------------------------+-------------+------------+------------------+------------+------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-----------+\nonly showing top 20 rows\n\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            {
+              "jobUrl": "http://192.168.1.128:4040/jobs/job?id\u003d51"
+            },
+            {
+              "jobUrl": "http://192.168.1.128:4040/jobs/job?id\u003d52"
+            }
+          ],
+          "interpreterSettingId": "spark"
+        }
+      },
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1748788109970_979532256",
+      "id": "paragraph_1748788109970_979532256",
+      "dateCreated": "2025-06-01 15:28:29.970",
+      "dateStarted": "2025-06-01 23:25:18.381",
+      "dateFinished": "2025-06-01 23:25:31.746",
+      "status": "FINISHED"
+    },
+    {
+      "text": "%pyspark\n# Select features to use for recommandations \nrec_features  \u003d [\n    \"product_name\",\n    \"id\"\n]\n",
+      "user": "anonymous",
+      "dateUpdated": "2025-06-02 15:01:54.273",
+      "progress": 0,
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "results": {},
+        "enabled": true,
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        }
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": []
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1748788117851_2080423772",
+      "id": "paragraph_1748788117851_2080423772",
+      "dateCreated": "2025-06-01 15:28:37.851",
+      "dateStarted": "2025-06-02 15:01:54.281",
+      "dateFinished": "2025-06-02 15:01:54.295",
+      "status": "FINISHED"
+    },
+    {
+      "text": "%pyspark\nimport pyspark.sql.functions as F\n# set a new dataframe\nml_df \u003d df.select(rec_features)",
+      "user": "anonymous",
+      "dateUpdated": "2025-06-02 15:01:56.614",
+      "progress": 0,
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "results": {},
+        "enabled": true,
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        }
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": []
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1748789916489_808840541",
+      "id": "paragraph_1748789916489_808840541",
+      "dateCreated": "2025-06-01 15:58:36.492",
+      "dateStarted": "2025-06-02 15:01:56.620",
+      "dateFinished": "2025-06-02 15:01:56.682",
+      "status": "FINISHED"
+    },
+    {
+      "text": "%md\n# Text Features ",
+      "user": "anonymous",
+      "dateUpdated": "2025-06-01 16:48:35.242",
+      "progress": 0,
+      "config": {
+        "tableHide": false,
+        "editorSetting": {
+          "language": "markdown",
+          "editOnDblClick": true,
+          "completionKey": "TAB",
+          "completionSupport": false
+        },
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "editorHide": true,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "HTML",
+            "data": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003ch1\u003eText Features\u003c/h1\u003e\n\n\u003c/div\u003e"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1748792883506_1214889901",
+      "id": "paragraph_1748792883506_1214889901",
+      "dateCreated": "2025-06-01 16:48:03.506",
+      "dateStarted": "2025-06-01 16:48:35.243",
+      "dateFinished": "2025-06-01 16:48:35.262",
+      "status": "FINISHED"
+    },
+    {
+      "text": "%pyspark\n# Add product name\nfrom pyspark.ml.feature import Tokenizer, StopWordsRemover,HashingTF,IDF\n\n# Step 1: Tokenize\ntokenizer \u003d Tokenizer(inputCol\u003d\"product_name\", outputCol\u003d\"product_name_tokens\")\n\n# Step 2: Remove stopwords (optional)\nremover \u003d StopWordsRemover(inputCol\u003d\"product_name_tokens\", outputCol\u003d\"product_name_filtered\")\n\n# Step 3: HashingTF to convert tokens to raw feature vectors\nhashingTF \u003d HashingTF(inputCol\u003d\"product_name_filtered\", outputCol\u003d\"product_name_tf\", numFeatures\u003d1000)\n\n# Step 4: IDF to rescale features\nidf \u003d IDF(inputCol\u003d\"product_name_tf\", outputCol\u003d\"product_name_vec\")\n\n# Then add these stages to your existing pipeline\n",
+      "user": "anonymous",
+      "dateUpdated": "2025-06-02 15:01:59.445",
+      "progress": 0,
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "results": {},
+        "enabled": true,
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        }
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": []
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1748809156963_580535090",
+      "id": "paragraph_1748809156963_580535090",
+      "dateCreated": "2025-06-01 21:19:16.968",
+      "dateStarted": "2025-06-02 15:01:59.452",
+      "dateFinished": "2025-06-02 15:01:59.992",
+      "status": "FINISHED"
+    },
+    {
+      "text": "%pyspark\n# Create a pipeline \nfrom pyspark.ml import Pipeline\nvec_pipeline \u003d Pipeline(\n    stages \u003d [\n        tokenizer,\n        remover,\n        hashingTF,\n        idf\n    ]\n)",
+      "user": "anonymous",
+      "dateUpdated": "2025-06-02 15:02:01.259",
+      "progress": 0,
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "results": {},
+        "enabled": true,
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        }
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": []
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1748793798852_616723766",
+      "id": "paragraph_1748793798852_616723766",
+      "dateCreated": "2025-06-01 17:03:18.852",
+      "dateStarted": "2025-06-02 15:02:01.267",
+      "dateFinished": "2025-06-02 15:02:01.280",
+      "status": "FINISHED"
+    },
+    {
+      "text": "%pyspark\nvectors_df \u003d vec_pipeline.fit(ml_df)",
+      "user": "anonymous",
+      "dateUpdated": "2025-06-02 15:02:03.045",
+      "progress": 0,
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "results": {},
+        "enabled": true,
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        }
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": []
+      },
+      "apps": [],
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            {
+              "jobUrl": "http://192.168.1.128:4040/jobs/job?id\u003d2"
+            },
+            {
+              "jobUrl": "http://192.168.1.128:4040/jobs/job?id\u003d3"
+            }
+          ],
+          "interpreterSettingId": "spark"
+        }
+      },
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1748794151089_77748023",
+      "id": "paragraph_1748794151089_77748023",
+      "dateCreated": "2025-06-01 17:09:11.089",
+      "dateStarted": "2025-06-02 15:02:03.054",
+      "dateFinished": "2025-06-02 15:02:15.263",
+      "status": "FINISHED"
+    },
+    {
+      "text": "%pyspark\nvectors_df.transform(ml_df).select(\"product_name_vec\").show(truncate\u003dFalse)",
+      "user": "anonymous",
+      "dateUpdated": "2025-06-01 23:38:14.702",
+      "progress": 0,
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "results": {},
+        "enabled": true,
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        }
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+\n|product_name_vec                                                                                                                                                                                                |\n+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+\n|(1000,[591,626,884],[4.679612322455676,6.196070670423733,4.41663429431907])                                                                                                                                     |\n|(1000,[206,276,335,918],[4.929336491331628,5.985736077402105,5.4487366585222015,5.637754427830396])                                                                                                             |\n|(1000,[518,796,885],[5.18916395485651,5.611234481845365,4.701975591544194])                                                                                                                                     |\n|(1000,[71,338,387,490],[5.027018745889339,5.918668528591702,4.572192073834839,4.94634260562352])                                                                                                                |\n|(1000,[83,133,143,819,978],[4.503239027911922,4.760264904569428,5.629982367982693,5.620990656790729,6.11742754310462])                                                                                          |\n|(1000,[158,241,301,800,890],[4.861867369988191,5.80741268063195,4.634105608379798,5.606181839517287,5.8450937475996385])                                                                                        |\n|(1000,[48,136,273,527,689,734],[5.624834351465292,5.329479607101851,5.6286928771528215,4.66116039861143,5.119414842037209,4.391888681197122])                                                                   |\n|(1000,[206,261,486,873,973],[4.929336491331628,5.550237471399858,5.424980887967369,4.275589335624678,4.791943833008286])                                                                                        |\n|(1000,[228,305,478,659],[4.635536564979803,5.424980887967369,6.36037372171501,5.150347845675997])                                                                                                               |\n|(1000,[59,135,442,447,717,762,939],[4.694859329727185,5.848834067215362,5.3423002955309125,4.407599429781357,5.597817089782897,5.412445904897672,5.299673479069149])                                            |\n|(1000,[328,339,484,761,904,939],[2.706427755480703,4.59347428980635,5.1303155469133985,4.051469351762071,5.662327845097418,5.299673479069149])                                                                  |\n|(1000,[18,434,720,734,771,812,815,884,923],[3.6411951945709884,4.471682012310762,5.037190329741505,4.391888681197122,10.693653306162087,5.180346041561392,4.241003441492134,4.41663429431907,6.274032211893445])|\n|(1000,[89,96,894],[5.68660961361954,3.2242585805873945,5.4908751513476135])                                                                                                                                     |\n|(1000,[328,470,693,788],[2.706427755480703,3.8962925435787423,4.39176398514359,4.722938558497478])                                                                                                              |\n|(1000,[305,313,467,967],[5.424980887967369,3.696748227272592,5.38345836802442,5.7651741244237655])                                                                                                              |\n|(1000,[63,573,589],[3.605803504977907,5.946019666189599,4.5603154496722595])                                                                                                                                    |\n|(1000,[54,59,447,762],[5.573541057077741,4.694859329727185,4.407599429781357,5.412445904897672])                                                                                                                |\n|(1000,[104,137],[5.734148853647912,4.641120943273703])                                                                                                                                                          |\n|(1000,[0,42,535,665],[8.5207715635723,6.358589599921508,9.043620372578305,5.59906735041669])                                                                                                                    |\n|(1000,[328,957],[2.706427755480703,5.091918201380008])                                                                                                                                                          |\n+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+\nonly showing top 20 rows\n\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            {
+              "jobUrl": "http://192.168.1.128:4040/jobs/job?id\u003d110"
+            },
+            {
+              "jobUrl": "http://192.168.1.128:4040/jobs/job?id\u003d111"
+            }
+          ],
+          "interpreterSettingId": "spark"
+        }
+      },
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1748794219380_767818550",
+      "id": "paragraph_1748794219380_767818550",
+      "dateCreated": "2025-06-01 17:10:19.381",
+      "dateStarted": "2025-06-01 23:38:20.546",
+      "dateFinished": "2025-06-01 23:38:25.439",
+      "status": "FINISHED"
+    },
+    {
+      "text": "%pyspark\nfrom pyspark.ml.feature import BucketedRandomProjectionLSH\nbrp\u003d BucketedRandomProjectionLSH()\\\n.setInputCol(\"product_name_vec\")\\\n.setOutputCol(\"output\").setBucketLength(2.0)",
+      "user": "anonymous",
+      "dateUpdated": "2025-06-02 15:02:21.388",
+      "progress": 0,
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        }
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": []
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1748794317656_2091458502",
+      "id": "paragraph_1748794317656_2091458502",
+      "dateCreated": "2025-06-01 17:11:57.656",
+      "dateStarted": "2025-06-02 15:02:21.397",
+      "dateFinished": "2025-06-02 15:02:21.442",
+      "status": "FINISHED"
+    },
+    {
+      "text": "%pyspark\nmodel_pipe \u003d Pipeline(stages\u003d\n    vec_pipeline.getStages()+ [brp]\n    )",
+      "user": "anonymous",
+      "dateUpdated": "2025-06-02 15:02:24.209",
+      "progress": 0,
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "results": {},
+        "enabled": true,
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        }
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": []
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1748796332625_267306935",
+      "id": "paragraph_1748796332625_267306935",
+      "dateCreated": "2025-06-01 17:45:32.626",
+      "dateStarted": "2025-06-02 15:02:24.216",
+      "dateFinished": "2025-06-02 15:02:24.230",
+      "status": "FINISHED"
+    },
+    {
+      "text": "%pyspark\nmodel \u003d model_pipe.fit(ml_df)",
+      "user": "anonymous",
+      "dateUpdated": "2025-06-02 15:02:26.275",
+      "progress": 0,
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "results": {},
+        "enabled": true,
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        }
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": []
+      },
+      "apps": [],
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            {
+              "jobUrl": "http://192.168.1.128:4040/jobs/job?id\u003d4"
+            },
+            {
+              "jobUrl": "http://192.168.1.128:4040/jobs/job?id\u003d5"
+            }
+          ],
+          "interpreterSettingId": "spark"
+        }
+      },
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1748796554024_658895538",
+      "id": "paragraph_1748796554024_658895538",
+      "dateCreated": "2025-06-01 17:49:14.024",
+      "dateStarted": "2025-06-02 15:02:26.283",
+      "dateFinished": "2025-06-02 15:02:33.947",
+      "status": "FINISHED"
+    },
+    {
+      "text": "\n%pyspark\nvectorized_df \u003d model.transform(ml_df)",
+      "user": "anonymous",
+      "dateUpdated": "2025-06-02 15:02:34.535",
+      "progress": 0,
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "results": {},
+        "enabled": true,
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        }
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": []
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1748799648996_1528397035",
+      "id": "paragraph_1748799648996_1528397035",
+      "dateCreated": "2025-06-01 18:40:48.996",
+      "dateStarted": "2025-06-02 15:02:34.542",
+      "dateFinished": "2025-06-02 15:02:34.676",
+      "status": "FINISHED"
+    },
+    {
+      "text": "%pyspark\nvectorized_df.show(truncate\u003dFalse)",
+      "user": "anonymous",
+      "dateUpdated": "2025-06-02 15:02:36.797",
+      "progress": 0,
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "results": {},
+        "enabled": true,
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        }
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "+--------------------------------------------------------------------------+----+--------------------------------------------------------------------------------------+--------------------------------------------------------------------------------+---------------------------------------------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------+\n|product_name                                                              |id  |product_name_tokens                                                                   |product_name_filtered                                                           |product_name_tf                                                                  |product_name_vec                                                                                                                                                                                                |output  |\n+--------------------------------------------------------------------------+----+--------------------------------------------------------------------------------------+--------------------------------------------------------------------------------+---------------------------------------------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------+\n|Vanilla Candy Coating                                                     |49  |[vanilla, candy, coating]                                                             |[vanilla, candy, coating]                                                       |(1000,[591,626,884],[1.0,1.0,1.0])                                               |(1000,[591,626,884],[4.679612322455676,6.196070670423733,4.41663429431907])                                                                                                                                     |[[-1.0]]|\n|jolly rancher gummy sours                                                 |155 |[jolly, rancher, gummy, sours]                                                        |[jolly, rancher, gummy, sours]                                                  |(1000,[206,276,335,918],[1.0,1.0,1.0,1.0])                                       |(1000,[206,276,335,918],[4.929336491331628,5.985736077402105,5.4487366585222015,5.637754427830396])                                                                                                             |[[0.0]] |\n|Homestyle baked beans                                                     |160 |[homestyle, baked, beans]                                                             |[homestyle, baked, beans]                                                       |(1000,[518,796,885],[1.0,1.0,1.0])                                               |(1000,[518,796,885],[5.18916395485651,5.611234481845365,4.701975591544194])                                                                                                                                     |[[-1.0]]|\n|Spartan, pasta sauce, mashroom                                            |460 |[spartan,, pasta, sauce,, mashroom]                                                   |[spartan,, pasta, sauce,, mashroom]                                             |(1000,[71,338,387,490],[1.0,1.0,1.0,1.0])                                        |(1000,[71,338,387,490],[5.027018745889339,5.918668528591702,4.572192073834839,4.94634260562352])                                                                                                                |[[0.0]] |\n|Frosted flakes sweetened corn cereal                                      |468 |[frosted, flakes, sweetened, corn, cereal]                                            |[frosted, flakes, sweetened, corn, cereal]                                      |(1000,[83,133,143,819,978],[1.0,1.0,1.0,1.0,1.0])                                |(1000,[83,133,143,819,978],[4.503239027911922,4.760264904569428,5.629982367982693,5.620990656790729,6.11742754310462])                                                                                          |[[-1.0]]|\n|Angus Beef Classic Bistro Patties                                         |675 |[angus, beef, classic, bistro, patties]                                               |[angus, beef, classic, bistro, patties]                                         |(1000,[158,241,301,800,890],[1.0,1.0,1.0,1.0,1.0])                               |(1000,[158,241,301,800,890],[4.861867369988191,5.80741268063195,4.634105608379798,5.606181839517287,5.8450937475996385])                                                                                        |[[-1.0]]|\n|Big win, flavored seltzer, lemon lime                                     |728 |[big, win,, flavored, seltzer,, lemon, lime]                                          |[big, win,, flavored, seltzer,, lemon, lime]                                    |(1000,[48,136,273,527,689,734],[1.0,1.0,1.0,1.0,1.0,1.0])                        |(1000,[48,136,273,527,689,734],[5.624834351465292,5.329479607101851,5.6286928771528215,4.66116039861143,5.119414842037209,4.391888681197122])                                                                   |[[0.0]] |\n|Traditional Favorites Cut Leaf Spinach                                    |938 |[traditional, favorites, cut, leaf, spinach]                                          |[traditional, favorites, cut, leaf, spinach]                                    |(1000,[206,261,486,873,973],[1.0,1.0,1.0,1.0,1.0])                               |(1000,[206,261,486,873,973],[4.929336491331628,5.550237471399858,5.424980887967369,4.275589335624678,4.791943833008286])                                                                                        |[[0.0]] |\n|Fancy shredded taco blend                                                 |1095|[fancy, shredded, taco, blend]                                                        |[fancy, shredded, taco, blend]                                                  |(1000,[228,305,478,659],[1.0,1.0,1.0,1.0])                                       |(1000,[228,305,478,659],[4.635536564979803,5.424980887967369,6.36037372171501,5.150347845675997])                                                                                                               |[[-1.0]]|\n|Roundy\u0027s, medium shells pasta, enriched macaroni product                  |1289|[roundy\u0027s,, medium, shells, pasta,, enriched, macaroni, product]                      |[roundy\u0027s,, medium, shells, pasta,, enriched, macaroni, product]                |(1000,[59,135,442,447,717,762,939],[1.0,1.0,1.0,1.0,1.0,1.0,1.0])                |(1000,[59,135,442,447,717,762,939],[4.694859329727185,5.848834067215362,5.3423002955309125,4.407599429781357,5.597817089782897,5.412445904897672,5.299673479069149])                                            |[[0.0]] |\n|Long Grain \u0026 Wild Rice Mix                                                |1536|[long, grain, \u0026, wild, rice, mix]                                                     |[long, grain, \u0026, wild, rice, mix]                                               |(1000,[328,339,484,761,904,939],[1.0,1.0,1.0,1.0,1.0,1.0])                       |(1000,[328,339,484,761,904,939],[2.706427755480703,4.59347428980635,5.1303155469133985,4.051469351762071,5.662327845097418,5.299673479069149])                                                                  |[[0.0]] |\n|Fudge swirl artificially flavored vanilla light ice cream with fudge sauce|1560|[fudge, swirl, artificially, flavored, vanilla, light, ice, cream, with, fudge, sauce]|[fudge, swirl, artificially, flavored, vanilla, light, ice, cream, fudge, sauce]|(1000,[18,434,720,734,771,812,815,884,923],[1.0,1.0,1.0,1.0,2.0,1.0,1.0,1.0,1.0])|(1000,[18,434,720,734,771,812,815,884,923],[3.6411951945709884,4.471682012310762,5.037190329741505,4.391888681197122,10.693653306162087,5.180346041561392,4.241003441492134,4.41663429431907,6.274032211893445])|[[-1.0]]|\n|Assorted Chocolate Truffles                                               |1610|[assorted, chocolate, truffles]                                                       |[assorted, chocolate, truffles]                                                 |(1000,[89,96,894],[1.0,1.0,1.0])                                                 |(1000,[89,96,894],[5.68660961361954,3.2242585805873945,5.4908751513476135])                                                                                                                                     |[[-1.0]]|\n|Sweet \u0026 Hot Mustard                                                       |1799|[sweet, \u0026, hot, mustard]                                                              |[sweet, \u0026, hot, mustard]                                                        |(1000,[328,470,693,788],[1.0,1.0,1.0,1.0])                                       |(1000,[328,470,693,788],[2.706427755480703,3.8962925435787423,4.39176398514359,4.722938558497478])                                                                                                              |[[-1.0]]|\n|Shredded colby jack cheese                                                |1942|[shredded, colby, jack, cheese]                                                       |[shredded, colby, jack, cheese]                                                 |(1000,[305,313,467,967],[1.0,1.0,1.0,1.0])                                       |(1000,[305,313,467,967],[5.424980887967369,3.696748227272592,5.38345836802442,5.7651741244237655])                                                                                                              |[[0.0]] |\n|Organic seltzer water                                                     |2114|[organic, seltzer, water]                                                             |[organic, seltzer, water]                                                       |(1000,[63,573,589],[1.0,1.0,1.0])                                                |(1000,[63,573,589],[3.605803504977907,5.946019666189599,4.5603154496722595])                                                                                                                                    |[[-1.0]]|\n|Spaghetti, enriched macaroni product                                      |2162|[spaghetti,, enriched, macaroni, product]                                             |[spaghetti,, enriched, macaroni, product]                                       |(1000,[54,59,447,762],[1.0,1.0,1.0,1.0])                                         |(1000,[54,59,447,762],[5.573541057077741,4.694859329727185,4.407599429781357,5.412445904897672])                                                                                                                |[[0.0]] |\n|Jumbo Bagels                                                              |2265|[jumbo, bagels]                                                                       |[jumbo, bagels]                                                                 |(1000,[104,137],[1.0,1.0])                                                       |(1000,[104,137],[5.734148853647912,4.641120943273703])                                                                                                                                                          |[[0.0]] |\n|Italian Style Stewed Tomatoes, Italian Style                              |2514|[italian, style, stewed, tomatoes,, italian, style]                                   |[italian, style, stewed, tomatoes,, italian, style]                             |(1000,[0,42,535,665],[2.0,1.0,2.0,1.0])                                          |(1000,[0,42,535,665],[8.5207715635723,6.358589599921508,9.043620372578305,5.59906735041669])                                                                                                                    |[[-1.0]]|\n|Udon noodles                                                              |2540|[udon, noodles]                                                                       |[udon, noodles]                                                                 |(1000,[328,957],[1.0,1.0])                                                       |(1000,[328,957],[2.706427755480703,5.091918201380008])                                                                                                                                                          |[[0.0]] |\n+--------------------------------------------------------------------------+----+--------------------------------------------------------------------------------------+--------------------------------------------------------------------------------+---------------------------------------------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------+\nonly showing top 20 rows\n\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            {
+              "jobUrl": "http://192.168.1.128:4040/jobs/job?id\u003d6"
+            },
+            {
+              "jobUrl": "http://192.168.1.128:4040/jobs/job?id\u003d7"
+            }
+          ],
+          "interpreterSettingId": "spark"
+        }
+      },
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1748800516598_1545147681",
+      "id": "paragraph_1748800516598_1545147681",
+      "dateCreated": "2025-06-01 18:55:16.603",
+      "dateStarted": "2025-06-02 15:02:36.803",
+      "dateFinished": "2025-06-02 15:02:42.065",
+      "status": "FINISHED"
+    },
+    {
+      "text": "%pyspark\ndf_1\u003d df.filter(F.array_contains(df.countries_tags,\"united-states\"))",
+      "user": "anonymous",
+      "dateUpdated": "2025-06-02 15:02:53.302",
+      "progress": 0,
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "results": {},
+        "enabled": true,
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        }
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": []
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1748817438287_1339462526",
+      "id": "paragraph_1748817438287_1339462526",
+      "dateCreated": "2025-06-01 23:37:18.292",
+      "dateStarted": "2025-06-02 15:02:53.310",
+      "dateFinished": "2025-06-02 15:02:53.373",
+      "status": "FINISHED"
+    },
+    {
+      "text": "%pyspark\n# Step 1: Transform entire catalog to get features and hashes\ncatalog_vec \u003d model.transform(ml_df).cache()\n\n# Step 2: Extract normalized vector of the query product\nquery_id \u003d 12345  # Replace with an actual product ID from your catalog\nquery_vector_row \u003d catalog_vec.filter(catalog_vec.id \u003d\u003d query_id).select(\"product_name_vec\").head()\n\nif query_vector_row is None:\n    print(f\"Product ID {query_id} not found in catalog.\")\nelse:\n    query_vector \u003d query_vector_row[0]\n\n    # Step 3: Find top 5 nearest neighbors using LSH model (last stage in pipeline)\n    lsh_model \u003d model.stages[-1]\n    recommendations \u003d lsh_model.approxNearestNeighbors(catalog_vec, query_vector, 6)  # 6 because query itself included\n\n    # Step 4: Filter out the query product itself from results\n    recommendations_filtered \u003d recommendations.filter(recommendations.id !\u003d query_id)\n\n    # Step 5: Show top 5 recommendations\n    recommendations_filtered.select(\"id\", \"distCol\").show(5)",
+      "user": "anonymous",
+      "dateUpdated": "2025-06-02 15:02:59.059",
+      "progress": 0,
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "results": {},
+        "enabled": true,
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        }
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            {
+              "jobUrl": "http://192.168.1.128:4040/jobs/job?id\u003d8"
+            },
+            {
+              "jobUrl": "http://192.168.1.128:4040/jobs/job?id\u003d9"
+            }
+          ],
+          "interpreterSettingId": "spark"
+        }
+      },
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1748800959063_1212405021",
+      "id": "paragraph_1748800959063_1212405021",
+      "dateCreated": "2025-06-01 19:02:39.065",
+      "dateStarted": "2025-06-02 15:02:59.066",
+      "dateFinished": "2025-06-01 23:39:14.101",
+      "status": "ABORT"
+    },
+    {
+      "text": "%pyspark\ndf.select(\"product_name\").filter((F.col(\"id\")\u003d\u003d17179931725) | (F.col(\"id\")\u003d\u003d12345)| (F.col(\"id\")\u003d\u003d24797)|(F.col(\"id\")\u003d\u003d60129595830)).show(truncate\u003dFalse)",
+      "user": "anonymous",
+      "dateUpdated": "2025-06-01 23:40:14.060",
+      "progress": 0,
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "results": {},
+        "enabled": true,
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        }
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "+------------------+\n|product_name      |\n+------------------+\n|S\u0027mores cocoa     |\n|75oz doritos nacho|\n|Tootie            |\n+------------------+\n\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            {
+              "jobUrl": "http://192.168.1.128:4040/jobs/job?id\u003d121"
+            },
+            {
+              "jobUrl": "http://192.168.1.128:4040/jobs/job?id\u003d122"
+            },
+            {
+              "jobUrl": "http://192.168.1.128:4040/jobs/job?id\u003d123"
+            }
+          ],
+          "interpreterSettingId": "spark"
+        }
+      },
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1748801112328_434661647",
+      "id": "paragraph_1748801112328_434661647",
+      "dateCreated": "2025-06-01 19:05:12.328",
+      "dateStarted": "2025-06-01 23:40:14.087",
+      "dateFinished": "2025-06-01 23:40:20.585",
+      "status": "FINISHED"
+    },
+    {
+      "text": "%pyspark\n#  Ingredient and category pools (adjust as needed)\ningredients_pool \u003d [\n    \"water\", \"glycerin\", \"sodium_chloride\", \"citric_acid\", \"fragrance\", \n    \"cocamidopropyl_betain\", \"sodium_benzoate\", \"aloe_vera\", \"vitamin_e\", \n    \"shea_butter\", \"caffeine\", \"jojoba_oil\", \"lavender_oil\", \"tea_tree_oil\",\n    \"benzyl_alcohol\", \"caprylyl_glycol\"\n]\n\ncategories_pool \u003d [\n    \"skincare\", \"haircare\", \"bodycare\", \"makeup\", \"fragrance\", \n    \"natural\", \"organic\", \"vegan\", \"cruelty_free\", \"anti_aging\"\n]\n\ndef generate_random_sample(num_samples\u003d1):\n    data \u003d []\n    for i in range(num_samples):\n        sample \u003d {\n            # \"ingredients_tags\": [\"sugar\",\"salt\",\"flour\"],\n            \"categories\": [\"unsweetened-beverages\", \"plant-based-foods\", \"condiments\", \"spices\", \"ginger\", \"groceries\"],\n            \"product_name\":\"Corn flakes\"\n            # Add other necessary columns your pipeline expects here, with dummy or random values\n            # \"additives\": random.choice([0,1]),\n            # \"contains_eggs\": random.choice([0,1]),\n            # \"contains_fish\": random.choice([0,1]),\n            # \"contains_gluten\": random.choice([0,1]),\n            # \"contains_milk\": random.choice([0,1]),\n            # \"contains_peanuts\": random.choice([0,1]),\n            # \"contains_shellfish\": random.choice([0,1]),\n            # \"contains_soybeans\": random.choice([0,1]),\n            # \"contains_tree_nuts\": random.choice([0,1]),\n            # \"contains_wheat\": random.choice([0,1]),\n            # \"nutriscore_grade\": random.choice([\"a\", \"b\", \"c\",\"d\", \"e\"]).upper(),\n            # \"ecoscore\": random.choice([\"a\", \"b\", \"c\",\"d\", \"e\"]).upper(),\n            # \"nova_group\": random.choice([1, 2, 3, 4]),\n            # Add any other columns your vectorizer depends on...\n        }\n        data.append(sample)\n    return data\n\n# Generate sample data\nsample_data \u003d generate_random_sample(1)\n\n# Create Spark DataFrame\ndf_sample \u003d spark.createDataFrame(sample_data)\ndf_sample.show()",
+      "user": "anonymous",
+      "dateUpdated": "2025-06-01 23:40:26.460",
+      "progress": 0,
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "results": {},
+        "enabled": true,
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        }
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "+--------------------+------------+\n|          categories|product_name|\n+--------------------+------------+\n|[unsweetened-beve...| Corn flakes|\n+--------------------+------------+\n\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            {
+              "jobUrl": "http://192.168.1.128:4040/jobs/job?id\u003d124"
+            },
+            {
+              "jobUrl": "http://192.168.1.128:4040/jobs/job?id\u003d125"
+            }
+          ],
+          "interpreterSettingId": "spark"
+        }
+      },
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1748804399300_58920075",
+      "id": "paragraph_1748804399300_58920075",
+      "dateCreated": "2025-06-01 19:59:59.302",
+      "dateStarted": "2025-06-01 23:40:26.466",
+      "dateFinished": "2025-06-01 23:40:26.872",
+      "status": "FINISHED"
+    },
+    {
+      "text": "%pyspark\nsample_vec \u003d model.transform(df_sample)",
+      "user": "anonymous",
+      "dateUpdated": "2025-06-01 23:40:31.170",
+      "progress": 0,
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "results": {},
+        "enabled": true,
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        }
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": []
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1748804547906_360394590",
+      "id": "paragraph_1748804547906_360394590",
+      "dateCreated": "2025-06-01 20:02:27.907",
+      "dateStarted": "2025-06-01 23:40:31.175",
+      "dateFinished": "2025-06-01 23:40:31.331",
+      "status": "FINISHED"
+    },
+    {
+      "text": "%pyspark\nsample_vec \u003d sample_vec.select(\"product_name_vec\").head()[0]",
+      "user": "anonymous",
+      "dateUpdated": "2025-06-01 23:40:33.948",
+      "progress": 0,
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "results": {},
+        "enabled": true,
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        }
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": []
+      },
+      "apps": [],
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            {
+              "jobUrl": "http://192.168.1.128:4040/jobs/job?id\u003d126"
+            },
+            {
+              "jobUrl": "http://192.168.1.128:4040/jobs/job?id\u003d127"
+            }
+          ],
+          "interpreterSettingId": "spark"
+        }
+      },
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1748805033706_288348609",
+      "id": "paragraph_1748805033706_288348609",
+      "dateCreated": "2025-06-01 20:10:33.706",
+      "dateStarted": "2025-06-01 23:40:33.953",
+      "dateFinished": "2025-06-01 23:40:34.210",
+      "status": "FINISHED"
+    },
+    {
+      "text": "%pyspark\n    # Step 3: Find top 5 nearest neighbors using LSH model (last stage in pipeline)\nlsh_model \u003d model.stages[-1]\nrecommendations \u003d lsh_model.approxNearestNeighbors(vectorized_df,sample_vec, 20)  # 6 because query itself included\nids \u003d [ row[\u0027id\u0027] for row in recommendations.select(\"id\").collect()]",
+      "user": "anonymous",
+      "dateUpdated": "2025-06-01 23:40:39.424",
+      "progress": 0,
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "results": {},
+        "enabled": true,
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        }
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": []
+      },
+      "apps": [],
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            {
+              "jobUrl": "http://192.168.1.128:4040/jobs/job?id\u003d128"
+            },
+            {
+              "jobUrl": "http://192.168.1.128:4040/jobs/job?id\u003d129"
+            }
+          ],
+          "interpreterSettingId": "spark"
+        }
+      },
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1748805179122_1048763828",
+      "id": "paragraph_1748805179122_1048763828",
+      "dateCreated": "2025-06-01 20:12:59.122",
+      "dateStarted": "2025-06-01 23:40:39.430",
+      "dateFinished": "2025-06-01 23:40:51.067",
+      "status": "FINISHED"
+    },
+    {
+      "text": "%pyspark\ndf_sample.select(\"categories\",\"product_name\").show(truncate\u003dFalse)",
+      "user": "anonymous",
+      "dateUpdated": "2025-06-01 23:40:53.419",
+      "progress": 0,
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "results": {},
+        "enabled": true,
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        }
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "+---------------------------------------------------------------------------------+------------+\n|categories                                                                       |product_name|\n+---------------------------------------------------------------------------------+------------+\n|[unsweetened-beverages, plant-based-foods, condiments, spices, ginger, groceries]|Corn flakes |\n+---------------------------------------------------------------------------------+------------+\n\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            {
+              "jobUrl": "http://192.168.1.128:4040/jobs/job?id\u003d130"
+            },
+            {
+              "jobUrl": "http://192.168.1.128:4040/jobs/job?id\u003d131"
+            }
+          ],
+          "interpreterSettingId": "spark"
+        }
+      },
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1748806764459_1215709678",
+      "id": "paragraph_1748806764459_1215709678",
+      "dateCreated": "2025-06-01 20:39:24.459",
+      "dateStarted": "2025-06-01 23:40:53.428",
+      "dateFinished": "2025-06-01 23:40:53.748",
+      "status": "FINISHED"
+    },
+    {
+      "text": "%pyspark\ndf.filter(df.id.isin(ids)).select(\"product_name\",\"categories\").show(truncate\u003dFalse)",
+      "user": "anonymous",
+      "dateUpdated": "2025-06-01 23:40:56.389",
+      "progress": 0,
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "results": {},
+        "enabled": true,
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        }
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "+-------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+\n|product_name       |categories                                                                                                                                                                                                                                           |\n+-------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+\n|Corn flakes        |[plant-based-foods-and-beverages, plant-based-foods, cereals-and-potatoes, cereals-and-their-products, cereals, cereals and potatoes]                                                                                                                |\n|Organic Corn Flakes|[undefined]                                                                                                                                                                                                                                          |\n|Corn Flakes        |[plant-based-foods-and-beverages, plant-based-foods, breakfasts, cereals-and-potatoes, cereals-and-their-products, breakfast-cereals, flakes, cereal-flakes, extruded-cereals, extruded-flakes, corn-flakes, cereals and potatoes, breakfast cereals]|\n|Lingine            |[plant-based-foods-and-beverages, plant-based-foods, pastas, dry-pastas, cereals-and-potatoes, cereals, cereals and potatoes]                                                                                                                        |\n|corn flakes        |[plant-based-foods-and-beverages, plant-based-foods, breakfasts, cereals-and-potatoes, cereals-and-their-products, breakfast-cereals, flakes, cereal-flakes, extruded-cereals, extruded-flakes, corn-flakes, cereals and potatoes, breakfast cereals]|\n+-------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+\n\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            {
+              "jobUrl": "http://192.168.1.128:4040/jobs/job?id\u003d132"
+            },
+            {
+              "jobUrl": "http://192.168.1.128:4040/jobs/job?id\u003d133"
+            },
+            {
+              "jobUrl": "http://192.168.1.128:4040/jobs/job?id\u003d134"
+            }
+          ],
+          "interpreterSettingId": "spark"
+        }
+      },
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1748805963969_541116671",
+      "id": "paragraph_1748805963969_541116671",
+      "dateCreated": "2025-06-01 20:26:03.971",
+      "dateStarted": "2025-06-01 23:40:56.397",
+      "dateFinished": "2025-06-01 23:41:04.854",
+      "status": "FINISHED"
+    },
+    {
+      "text": "%pyspark\nfrom pyspark.sql.functions import udf, col\nfrom pyspark.sql.types import DoubleType\nimport numpy as np\n\ndef cosine_similarity_with_query(df, vector_col, query_vector, ascending\u003dFalse):\n    \"\"\"\n    Compute cosine similarity between each vector in df[vector_col] and query_vector.\n    Return a DataFrame with an added \u0027cosine_similarity\u0027 column sorted by similarity.\n\n    Parameters:\n    - df: Spark DataFrame with vector column\n    - vector_col: name of the vector column in df (string)\n    - query_vector: pyspark.ml.linalg.Vector (query vector)\n    - ascending: bool, True to sort ascending, False descending (default)\n\n    Returns:\n    - DataFrame with \u0027cosine_similarity\u0027 column sorted by similarity\n    \"\"\"\n\n    def cosine_sim(v):\n        arr1 \u003d v.toArray()\n        arr2 \u003d query_vector.toArray()\n        dot \u003d float(np.dot(arr1, arr2))\n        norm1 \u003d float(np.linalg.norm(arr1))\n        norm2 \u003d float(np.linalg.norm(arr2))\n        if norm1 \u003d\u003d 0 or norm2 \u003d\u003d 0:\n            return 0.0\n        return dot / (norm1 * norm2)\n\n    cosine_sim_udf \u003d udf(cosine_sim, DoubleType())\n\n    df_with_sim \u003d df.withColumn(\"cosine_similarity\", cosine_sim_udf(col(vector_col)))\n    sorted_df \u003d df_with_sim.orderBy(col(\"cosine_similarity\").asc() if ascending else col(\"cosine_similarity\").desc())\n    return sorted_df\n",
+      "user": "anonymous",
+      "dateUpdated": "2025-06-01 23:41:13.997",
+      "progress": 0,
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "results": {},
+        "enabled": true,
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        }
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": []
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1748812465857_1257395795",
+      "id": "paragraph_1748812465857_1257395795",
+      "dateCreated": "2025-06-01 22:14:25.861",
+      "dateStarted": "2025-06-01 23:41:14.003",
+      "dateFinished": "2025-06-01 23:41:14.029",
+      "status": "FINISHED"
+    },
+    {
+      "text": "%pyspark\nn_ids \u003d cosine_similarity_with_query(vectorized_df.select(\"id\",\"product_name_vec\"),\"product_name_vec\",sample_vec).select(\"id\").collect()[:10]",
+      "user": "anonymous",
+      "dateUpdated": "2025-06-01 23:41:18.256",
+      "progress": 0,
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        }
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": []
+      },
+      "apps": [],
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            {
+              "jobUrl": "http://192.168.1.128:4040/jobs/job?id\u003d135"
+            },
+            {
+              "jobUrl": "http://192.168.1.128:4040/jobs/job?id\u003d136"
+            },
+            {
+              "jobUrl": "http://192.168.1.128:4040/jobs/job?id\u003d137"
+            },
+            {
+              "jobUrl": "http://192.168.1.128:4040/jobs/job?id\u003d138"
+            }
+          ],
+          "interpreterSettingId": "spark"
+        }
+      },
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1748807484383_848423838",
+      "id": "paragraph_1748807484383_848423838",
+      "dateCreated": "2025-06-01 20:51:24.383",
+      "dateStarted": "2025-06-01 23:41:18.262",
+      "dateFinished": "2025-06-01 23:41:58.564",
+      "status": "FINISHED"
+    },
+    {
+      "text": "%pyspark\nn_ids  \u003d [row[\"id\"] for row in n_ids]",
+      "user": "anonymous",
+      "dateUpdated": "2025-06-01 23:42:02.366",
+      "progress": 0,
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        }
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": []
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1748811846982_1607109608",
+      "id": "paragraph_1748811846982_1607109608",
+      "dateCreated": "2025-06-01 22:04:06.990",
+      "dateStarted": "2025-06-01 23:42:02.371",
+      "dateFinished": "2025-06-01 23:42:02.382",
+      "status": "FINISHED"
+    },
+    {
+      "text": "%pyspark\ndf.select(\"product_name\",\"categories\").filter(df.id.isin(n_ids)).show(truncate\u003dFalse)",
+      "user": "anonymous",
+      "dateUpdated": "2025-06-01 23:42:07.129",
+      "progress": 0,
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "results": {},
+        "enabled": true,
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        }
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "+------------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+\n|product_name                                          |categories                                                                                                                                                                                                                                           |\n+------------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+\n|Corn Flakes Organic Cereal, Corn Flakes               |[plant-based-foods-and-beverages, plant-based-foods, cereals-and-potatoes, cereals-and-their-products, cereals, cereals and potatoes]                                                                                                                |\n|Corn flakes                                           |[plant-based-foods-and-beverages, plant-based-foods, cereals-and-potatoes, cereals-and-their-products, cereals, cereals and potatoes]                                                                                                                |\n|Corn flakes cereal, corn flakes                       |[plant-based-foods-and-beverages, plant-based-foods, cereals-and-potatoes, cereals-and-their-products, cereals, cereals and potatoes]                                                                                                                |\n|Organic corn flakes cereal, corn flakes               |[plant-based-foods-and-beverages, plant-based-foods, cereals-and-potatoes, cereals-and-their-products, cereals, cereals and potatoes]                                                                                                                |\n|Corn Flakes                                           |[plant-based-foods-and-beverages, plant-based-foods, breakfasts, cereals-and-potatoes, cereals-and-their-products, breakfast-cereals, flakes, cereal-flakes, extruded-cereals, extruded-flakes, corn-flakes, cereals and potatoes, breakfast cereals]|\n|Corn flakes toasted corn flakes cereal, corn flakes   |[plant-based-foods-and-beverages, plant-based-foods, breakfasts, cereals-and-potatoes, cereals-and-their-products, breakfast-cereals, flakes, cereal-flakes, extruded-cereals, extruded-flakes, corn-flakes, cereals and potatoes, breakfast cereals]|\n|Corn flakes toasted flakes of corn cereal, corn flakes|[plant-based-foods-and-beverages, plant-based-foods, cereals-and-potatoes, cereals-and-their-products, cereals, cereals and potatoes]                                                                                                                |\n|corn flakes                                           |[plant-based-foods-and-beverages, plant-based-foods, breakfasts, cereals-and-potatoes, cereals-and-their-products, breakfast-cereals, flakes, cereal-flakes, extruded-cereals, extruded-flakes, corn-flakes, cereals and potatoes, breakfast cereals]|\n+------------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+\n\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            {
+              "jobUrl": "http://192.168.1.128:4040/jobs/job?id\u003d139"
+            },
+            {
+              "jobUrl": "http://192.168.1.128:4040/jobs/job?id\u003d140"
+            },
+            {
+              "jobUrl": "http://192.168.1.128:4040/jobs/job?id\u003d141"
+            }
+          ],
+          "interpreterSettingId": "spark"
+        }
+      },
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1748812958950_883195090",
+      "id": "paragraph_1748812958950_883195090",
+      "dateCreated": "2025-06-01 22:22:38.951",
+      "dateStarted": "2025-06-01 23:42:07.152",
+      "dateFinished": "2025-06-01 23:42:15.132",
+      "status": "FINISHED"
+    },
+    {
+      "text": "%pyspark\n# Save the model \nmodel.write().overwrite().save(\"/home/aes-saouiqui/Desktop/similar\")",
+      "user": "anonymous",
+      "dateUpdated": "2025-06-01 23:47:08.941",
+      "progress": 0,
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "results": {},
+        "enabled": true,
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        }
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": []
+      },
+      "apps": [],
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            {
+              "jobUrl": "http://192.168.1.128:4040/jobs/job?id\u003d142"
+            },
+            {
+              "jobUrl": "http://192.168.1.128:4040/jobs/job?id\u003d143"
+            },
+            {
+              "jobUrl": "http://192.168.1.128:4040/jobs/job?id\u003d144"
+            },
+            {
+              "jobUrl": "http://192.168.1.128:4040/jobs/job?id\u003d145"
+            },
+            {
+              "jobUrl": "http://192.168.1.128:4040/jobs/job?id\u003d146"
+            },
+            {
+              "jobUrl": "http://192.168.1.128:4040/jobs/job?id\u003d147"
+            },
+            {
+              "jobUrl": "http://192.168.1.128:4040/jobs/job?id\u003d148"
+            },
+            {
+              "jobUrl": "http://192.168.1.128:4040/jobs/job?id\u003d149"
+            },
+            {
+              "jobUrl": "http://192.168.1.128:4040/jobs/job?id\u003d150"
+            },
+            {
+              "jobUrl": "http://192.168.1.128:4040/jobs/job?id\u003d151"
+            }
+          ],
+          "interpreterSettingId": "spark"
+        }
+      },
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1748812962885_1604665970",
+      "id": "paragraph_1748812962885_1604665970",
+      "dateCreated": "2025-06-01 22:22:42.885",
+      "dateStarted": "2025-06-01 23:47:08.951",
+      "dateFinished": "2025-06-01 23:47:10.721",
+      "status": "FINISHED"
+    },
+    {
+      "text": "%pyspark\n# Save the vectorized df\nvectorized_df.select(\"id\",\"product_name_vec\").write.mode(\"overwrite\").parquet(\"/home/aes-saouiqui/Desktop/vectorized_df.parquet\")",
+      "user": "anonymous",
+      "dateUpdated": "2025-06-01 23:51:18.097",
+      "progress": 0,
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "results": {},
+        "enabled": true,
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        }
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": []
+      },
+      "apps": [],
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            {
+              "jobUrl": "http://192.168.1.128:4040/jobs/job?id\u003d152"
+            },
+            {
+              "jobUrl": "http://192.168.1.128:4040/jobs/job?id\u003d153"
+            }
+          ],
+          "interpreterSettingId": "spark"
+        }
+      },
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1748818028947_1780090978",
+      "id": "paragraph_1748818028947_1780090978",
+      "dateCreated": "2025-06-01 23:47:08.950",
+      "dateStarted": "2025-06-01 23:51:18.103",
+      "dateFinished": "2025-06-01 23:51:26.898",
+      "status": "FINISHED"
+    },
+    {
+      "text": "%pyspark\n",
+      "user": "anonymous",
+      "dateUpdated": "2025-06-01 23:48:29.462",
+      "progress": 0,
+      "config": {},
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1748818109462_1562251924",
+      "id": "paragraph_1748818109462_1562251924",
+      "dateCreated": "2025-06-01 23:48:29.462",
+      "status": "READY"
+    }
+  ],
+  "name": "Recommandation",
+  "id": "2KYGF3MH2",
+  "defaultInterpreterGroup": "spark",
+  "version": "0.12.0",
+  "noteParams": {},
+  "noteForms": {},
+  "angularObjects": {},
+  "config": {
+    "isZeppelinNotebookCronEnable": false
+  },
+  "info": {}
+}
