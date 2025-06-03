@@ -18,8 +18,8 @@ import numpy as np
 
 
 class Recommander:
-    def __init__(self,spark,df_path,vectorizer_path,model_path=None):
-        self.vectoried_df = spark.read.format("parquet").load(df_path)
+    def __init__(self,spark,df_path,vectorizer_path,country,model_path=None):
+        self.vectoried_df = spark.read.format("parquet").load(df_path).filter(F.array_contains(F.col("countries_tags"),country)).select("id","product_name_vec")
         self.model_1 = PipelineModel.load(model_path) if model_path else None
         self.spark = spark
         self.vectorizer  = PipelineModel.load(vectorizer_path)

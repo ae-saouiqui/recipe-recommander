@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
-
+import ProductCard from '../components/ProductCard';
+import ProductListWithFilters from '../components/ProductListWithFilter';
 function Recommendations() {
   const navigate = useNavigate();
   const location = useLocation();
@@ -15,9 +16,7 @@ function Recommendations() {
   if (!recommendations) return null;
 
   return (
-    <div>
-      Amine
-    </div>
+    <ProductListWithFilters products={recommendations}/>
   );
 }
 export default Recommendations;

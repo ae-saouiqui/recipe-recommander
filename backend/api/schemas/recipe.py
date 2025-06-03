@@ -1,7 +1,8 @@
 from pydantic import BaseModel
 
-from typing import List
+from typing import List,Optional
 
 class Recipe(BaseModel):
 
-    recipe: List[str]
+    recipe: str
+    country : str
