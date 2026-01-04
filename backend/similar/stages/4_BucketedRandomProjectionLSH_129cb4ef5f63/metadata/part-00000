@@ -1,1 +1,0 @@
-{"class":"org.apache.spark.ml.feature.BucketedRandomProjectionLSHModel","timestamp":1748818030493,"sparkVersion":"3.5.5","uid":"BucketedRandomProjectionLSH_129cb4ef5f63","paramMap":{"bucketLength":2.0,"outputCol":"output","inputCol":"product_name_vec"},"defaultParamMap":{"outputCol":"BucketedRandomProjectionLSH_129cb4ef5f63__output","numHashTables":1}}
