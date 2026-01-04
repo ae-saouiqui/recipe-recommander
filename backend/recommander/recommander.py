@@ -2,18 +2,7 @@ from pyspark.ml import PipelineModel
 import pyspark.sql.functions as F
 from pyspark.sql.types import DoubleType
 import numpy as np
-# conf = SparkConf()\
-#     .setAppName("Recommandation System")\
-#     .setMaster("local[*]")\
-#     .set("spark.executor.memory", "3g")\
-#     .set("spark.sql.shuffle.partitions", "100")\
-#     .set("spark.executor.cores","2")\
-#     .set("spark.executor.memory","3g")
 
-# # Pass it to SparkSession
-# spark = SparkSession.builder\
-#     .config(conf=conf)\
-#     .getOrCreate()
 
 
 
@@ -61,16 +50,3 @@ class Recommander:
         for row in vectorized_df.collect():
             recommondation.extend(self.suggest_cosine(row.product_name_vec,top_n))
         return list(set(recommondation))
-
-  
-    
-
-    
-# df = spark.createDataFrame([{"product_name":"Corn Flex"},{"product_name":"Yogurt"}])
-# a = Recommander(spark,"./vectorized_df.parquet","./vectorizer","./similar")
-
-# print(a.recommend_for_targets(df))
-    
-    
-
-
