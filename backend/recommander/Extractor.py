@@ -17,14 +17,6 @@ class Extractor:
     
     def filter_good_ingredients(self,ingredients_list):
         # Define common valid ingredients (can be expanded)
-        # valid_ingredients = {
-        # 'baking powder', 'sugar', 'salt', 'vanilla extract', 'eggs', 
-        # 'flour', 'purpose flour', 'all purpose flour', 'cocoa powder', 
-        # 'butter', 'brown sugar', 'white sugar', 'milk', 'oil', 
-        # 'vegetable oil', 'olive oil', 'water', 'honey', 'cinnamon',
-        # 'baking soda', 'yeast', 'cream', 'cheese', 'chocolate',
-        # 'nuts', 'almonds', 'walnuts', 'pecans', 'raisins','yaourt'
-        # }
         valid_ingredients = {
     'baking powder', 'baking soda', 'yeast',
     'sugar', 'brown sugar', 'white sugar', 'honey',
