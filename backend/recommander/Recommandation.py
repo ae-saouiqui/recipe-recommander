@@ -22,7 +22,3 @@ class Recommandation :
         data = list(map(lambda x : {"product_name":x},recipe))
         df = self.spark.createDataFrame(data)
         return self.recommander.recommend_for_targets(df,top_n)
-    
-
-# a = Recommandation("./vectorized_df.parquet","./vectorizer","./similar")
-
